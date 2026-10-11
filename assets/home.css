@@ -1,0 +1,196 @@
+/* Tiny Atlas landing (/ and /tr/). The paper, ink and footer come from site.css;
+   this file is the landing's own: big round windows, one idea per screen. */
+:root {
+  --night: #26305A;
+  --mint: #D6F1DF;
+  --leaf: #3E7A55;
+  --card: #FFFDF8;
+  --page: 78rem;
+  --pad: clamp(1rem, 5vw, 3.5rem);
+  --step: clamp(5.5rem, 13vw, 11rem);
+}
+
+html { overflow-x: hidden; overflow-x: clip; }
+.home main { flex: 1; }
+
+/* Header: only the language switch */
+.home .top { justify-content: flex-end; padding-top: 1rem; padding-bottom: 0; }
+
+/* Type */
+.home h1 {
+  font-size: clamp(3.9rem, 11.5vw, 8.75rem);
+  font-weight: 900; letter-spacing: -0.045em; line-height: 0.86;
+}
+.home h2 {
+  font-size: clamp(2.6rem, 6.6vw, 5.4rem);
+  font-weight: 900; letter-spacing: -0.035em; line-height: 0.94;
+  margin: 0;
+}
+.say {
+  margin-top: clamp(1rem, 2vw, 1.5rem);
+  max-width: 27ch;
+  font-size: clamp(1.15rem, 1.7vw, 1.45rem); line-height: 1.4; font-weight: 600;
+  color: var(--ink-soft);
+}
+.aside {
+  margin-top: 1.25rem; max-width: 34ch;
+  font-size: 1.02rem; line-height: 1.45; font-weight: 700; color: var(--ink);
+}
+
+/* Sections: one idea each, a lot of air between them */
+.band { width: 100%; max-width: var(--page); margin: 0 auto; padding: var(--step) var(--pad) 0; }
+
+.split { display: grid; gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
+@media (min-width: 900px) {
+  .split { grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); }
+  .split--flip { grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); }
+  .split--flip > .words { order: 2; }
+}
+
+/* A round window: the media clipped to a hand-drawn ring, a soft shadow on the paper under it */
+.win { position: relative; aspect-ratio: 1; width: 100%; }
+.win::after {
+  content: ""; position: absolute; left: 12%; right: 12%; bottom: -7%; height: 9%;
+  border-radius: 50%; background: var(--paper-deep); z-index: -1;
+}
+.win__media { position: absolute; inset: 0; overflow: hidden; background: var(--paper-deep); }
+.win__media img, .win__media video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.win__ring { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; fill: none; pointer-events: none; }
+.win__ring use { stroke: var(--ink); stroke-width: var(--ring, 4px); stroke-linejoin: round; vector-effect: non-scaling-stroke; }
+.win__ring use + use { stroke-width: calc(var(--ring, 4px) * 0.45); opacity: 0.4; }
+.clip-a { clip-path: url(#clip-a); -webkit-clip-path: url(#clip-a); }
+.clip-b { clip-path: url(#clip-b); -webkit-clip-path: url(#clip-b); }
+.clip-c { clip-path: url(#clip-c); -webkit-clip-path: url(#clip-c); }
+.clip-d { clip-path: url(#clip-d); -webkit-clip-path: url(#clip-d); }
+
+/* A hand-cut frame for wide pictures: ink all the way round, corners that do not quite match */
+.frame {
+  position: relative; overflow: hidden; margin: 0;
+  border: 3px solid var(--ink);
+  border-radius: 30px 38px 34px 26px / 34px 28px 38px 30px;
+  background: var(--paper-deep);
+  box-shadow: 0 1.4rem 0 -0.9rem var(--paper-deep);
+}
+.frame img, .frame video { display: block; width: 100%; height: auto; }
+
+/* Hero */
+.hero { padding-top: clamp(1.5rem, 5vw, 3.5rem); }
+.hero .words { padding-top: 1rem; }
+.hero .say { max-width: 24ch; }
+.store { margin-top: clamp(1.75rem, 3vw, 2.5rem); display: flex; }
+.store-soon {
+  display: inline-flex; align-items: center; min-height: 52px;
+  padding: 0.75rem 1.5rem; border-radius: 999px;
+  border: 2.5px solid var(--ink); background: var(--paper-light);
+  font-weight: 800; font-size: 1.05rem; line-height: 1.2; color: var(--ink);
+}
+.stage { position: relative; width: min(100%, 38rem); margin: 0 auto; padding: 4% 6% 8% 2%; }
+.stage .win--big { --ring: 6px; }
+.stage .win--s1, .stage .win--s2 { position: absolute; --ring: 3.5px; }
+.stage .win--s1 { width: 27%; left: -3%; top: -2%; }
+.stage .win--s2 { width: 24%; right: -1%; bottom: 2%; }
+
+/* The one entrance: the windows open, nearest last */
+@media (prefers-reduced-motion: no-preference) {
+  .stage .win { animation: open 1s cubic-bezier(.2, .9, .3, 1.2) both; }
+  .stage .win--big { animation-delay: .05s; }
+  .stage .win--s1 { animation-delay: .35s; }
+  .stage .win--s2 { animation-delay: .5s; }
+  @keyframes open { from { opacity: 0; transform: scale(.82) rotate(-4deg); } }
+}
+
+/* The clip's pause button (moving pictures longer than five seconds need one) */
+.play {
+  position: absolute; z-index: 2; width: 44px; height: 44px; border-radius: 50%;
+  border: 2px solid var(--ink); background: var(--paper-light); color: var(--ink);
+  display: grid; place-items: center; cursor: pointer; padding: 0;
+}
+.play svg { width: 16px; height: 16px; fill: currentColor; }
+.play .i-play { display: none; }
+.play.paused .i-play { display: block; }
+.play.paused .i-pause { display: none; }
+.play[hidden] { display: none; }
+.stage .play { left: 12%; bottom: 10%; }
+.frame .play { right: 1rem; bottom: 1rem; }
+
+/* Twelve windows, placed by hand rather than on a strict grid */
+.twelve .words { text-align: center; }
+.twelve h2 { margin: 0 auto; }
+.worlds {
+  list-style: none; margin: clamp(2.5rem, 6vw, 4.5rem) auto 0; padding: 0;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6rem 1rem;
+  max-width: 68rem;
+}
+.worlds li { --ring: 3px; }
+.worlds li:nth-child(3n+2) { transform: translateY(1.2rem); }
+@media (min-width: 760px) {
+  .worlds { grid-template-columns: repeat(6, 1fr); gap: 2.4rem clamp(1rem, 2.2vw, 2rem); }
+  .worlds li:nth-child(3n+2) { transform: none; }
+  .worlds li:nth-child(even) { transform: translateY(1.6rem); }
+}
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .worlds .win { transition: transform .35s cubic-bezier(.2, .9, .3, 1.3); }
+  .worlds li:hover .win { transform: rotate(-5deg) scale(1.06); }
+}
+
+/* Touch: the clip runs the whole width */
+.touch .frame { margin-top: clamp(2rem, 4vw, 3.25rem); }
+.touch .frame video { aspect-ratio: 1280 / 908; object-fit: cover; }
+
+/* What they make: three pieces, laid out like a small wall */
+.made-wall { display: grid; gap: clamp(1rem, 2.4vw, 1.75rem); }
+@media (min-width: 640px) {
+  .made-wall { grid-template-columns: 1.05fr 1fr; align-items: center; }
+  .made-wall .p1 { grid-row: span 2; transform: rotate(-1.2deg); }
+  .made-wall .p2 { transform: rotate(1deg) translateX(-0.5rem); }
+  .made-wall .p3 { transform: rotate(-0.6deg); }
+}
+
+/* Journal: the grown-ups' page, drawn in the page's own type */
+.journal {
+  margin: 0; padding: clamp(1.1rem, 3vw, 1.75rem);
+  background: #F4EEE4; border: 1px solid var(--line);
+  border-radius: 34px 30px 36px 28px;
+  box-shadow: 0 1.4rem 0 -0.9rem var(--paper-deep);
+  display: grid; gap: 0.75rem; max-width: 34rem; justify-self: center; width: 100%;
+  font-size: 1rem; line-height: 1.4; transform: rotate(-1deg);
+}
+.journal .j-title { font-weight: 900; font-size: 1.35rem; padding: 0 0.25rem 0.25rem; display: flex; align-items: center; gap: 0.6rem; }
+.journal .j-title::before {
+  content: ""; width: 0.6rem; height: 0.6rem; border-left: 2.5px solid var(--ink); border-bottom: 2.5px solid var(--ink);
+  transform: rotate(45deg); margin-left: 0.25rem;
+}
+.j-card { background: var(--card); border-radius: 18px; padding: 0.95rem 1.1rem; }
+.j-card.ask { background: var(--mint); }
+.j-card b { display: block; font-weight: 800; font-size: 1.08rem; margin-bottom: 0.35rem; }
+.j-find + .j-find { margin-top: 0.7rem; }
+.j-find span { display: flex; justify-content: space-between; gap: 1rem; font-size: 0.88rem; font-weight: 700; color: var(--leaf); }
+.j-find span i { font-style: normal; font-weight: 600; color: var(--ink-soft); }
+.j-note { font-size: 0.88rem; color: var(--ink-soft); padding: 0.25rem 0.25rem 0; }
+
+/* Price: the real picker, and the store again */
+.price .store { margin-top: 1.75rem; }
+
+/* Footer on the landing: one line, the language switch with the rest */
+.home .foot { max-width: var(--page); margin: 0 auto; width: 100%; padding: var(--step) var(--pad) 2.5rem; }
+
+@media (max-width: 899px) {
+  .hero .split { gap: 2.25rem; }
+  .stage { width: min(100%, 30rem); }
+}
+@media (max-width: 480px) {
+  .stage { padding: 6% 4% 10% 4%; }
+  .stage .play { left: 8%; bottom: 8%; }
+  .frame { border-width: 2.5px; border-radius: 22px 28px 24px 20px / 24px 20px 28px 22px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .journal, .made-wall .p1, .made-wall .p2, .made-wall .p3 { transform: none; }
+}
+.vh { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+figure.win { margin: 0; }
+.nw { white-space: nowrap; }
+@media (min-width: 900px) {
+  .hero .split { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); }
+  .hero .stage { width: min(100%, 44rem); }
+  .made .split { grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr); }
+}
