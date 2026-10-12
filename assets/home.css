@@ -121,7 +121,7 @@ html { overflow-x: hidden; overflow-x: clip; }
 .play.paused .i-play { display: block; }
 .play.paused .i-pause { display: none; }
 .play[hidden] { display: none; }
-.stage .play { left: 12%; bottom: 10%; }
+.stage .play { left: 19%; bottom: 17%; }
 .frame .play { right: 1rem; bottom: 1rem; }
 
 /* The worlds: twelve windows and one screen that opens on the one chosen */
@@ -198,7 +198,7 @@ html { overflow-x: hidden; overflow-x: clip; }
 }
 @media (max-width: 480px) {
   .stage { padding: 6% 4% 10% 4%; }
-  .stage .play { left: 8%; bottom: 8%; }
+  .stage .play { left: 16%; bottom: 15%; }
   .frame { border-width: 2.5px; border-radius: 22px 28px 24px 20px / 24px 20px 28px 22px; }
 }
 @media (prefers-reduced-motion: reduce) {
