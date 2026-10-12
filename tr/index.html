@@ -52,7 +52,7 @@
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" type="image/png" sizes="192x192" href="/assets/img/icon-192.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="preload" as="image" href="/assets/home/pond-night.jpg" fetchpriority="high">
+<link rel="preload" as="image" href="/assets/home/pond-day.jpg" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&amp;display=swap">
@@ -68,52 +68,55 @@
 <main id="main">
 
   <section class="band hero">
-    <div class="split">
-      <div class="words">
-        <h1>Minik Atlas</h1>
-        <p class="say">Dokunup keşfedilecek, elle çizilmiş küçük dünyalar. 2–6&nbsp;yaş&nbsp;için.</p>
-        <div class="store" id="app-store">
-          <!-- App Store: when the app is live, replace this <p> with Apple's official badge for this language,
-               linked to the app (developer.apple.com/app-store/marketing/guidelines), e.g.
-               <a href="https://apps.apple.com/app/id…"><img src="/assets/img/app-store-badge-tr.svg" width="160" height="54" alt="Download on the App Store"></a>
-               The same place is in the last section ("price"), below. -->
-          <p class="store-soon">Yakında App Store’da</p>
-        </div>
-      </div>
+    <div class="hero-grid">
+      <h1>Minik Atlas</h1>
       <div class="stage">
         <figure class="win win--big">
-          <figcaption class="vh">Gece gölet: kurbağa nilüfer yaprağından zıplıyor, suyun kenarında ateş böcekleri parlıyor</figcaption>
-          <div class="win__media clip-a"><video muted loop playsinline preload="none" poster="/assets/home/pond-night.jpg" aria-hidden="true" data-clip><source data-src="/assets/home/pond-night.webm" type="video/webm"><source data-src="/assets/home/pond-night.mp4" type="video/mp4"></video></div>
+          <figcaption class="vh">Güneşli bir günde gölet: kurbağa nilüfer yaprağından zıplıyor, küçük kurbağalar yakındaki yapraklarda oturuyor</figcaption>
+          <div class="win__media clip-a"><video muted loop playsinline preload="none" poster="/assets/home/pond-day.jpg" aria-hidden="true" data-clip><source data-src="/assets/home/pond-day.webm" type="video/webm"><source data-src="/assets/home/pond-day.mp4" type="video/mp4"></video></div>
           <button class="play" type="button" data-pause="Videoyu durdur" data-play="Videoyu oynat" aria-label="Videoyu durdur" hidden><svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="2" width="3.6" height="12" rx="1.2"/><rect x="9.4" y="2" width="3.6" height="12" rx="1.2"/></svg><svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8c0 .8.9 1.3 1.6.8l8.2-5.4c.6-.4.6-1.2 0-1.6L5.6 1.8C4.9 1.3 4 1.8 4 2.6z"/></svg></button>
           <svg class="win__ring" viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true" focusable="false"><use href="#ring-a"/><use href="#ring-a" transform="rotate(3 .5 .5)"/></svg>
         </figure>
         <div class="win win--s1"><div class="win__media clip-c"><img src="/assets/home/w-winter.webp" width="440" height="440" alt="" decoding="async"></div><svg class="win__ring" viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true" focusable="false"><use href="#ring-c"/><use href="#ring-c" transform="rotate(3 .5 .5)"/></svg></div>
         <div class="win win--s2"><div class="win__media clip-b"><img src="/assets/home/w-music.webp" width="440" height="440" alt="" decoding="async"></div><svg class="win__ring" viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true" focusable="false"><use href="#ring-b"/><use href="#ring-b" transform="rotate(3 .5 .5)"/></svg></div>
       </div>
+      <p class="say">Dokunup keşfedilecek, elle çizilmiş küçük dünyalar. 2–6&nbsp;yaş&nbsp;için.</p>
+      <div class="cta" id="app-store">
+        <a class="go" href="#worlds">Dünyalara bak</a>
+        <!-- App Store: when the app is live, replace the <p> below with Apple's official badge for this language,
+             linked to the app (developer.apple.com/app-store/marketing/guidelines), e.g.
+             <a href="https://apps.apple.com/app/id…"><img src="/assets/img/app-store-badge-tr.svg" width="160" height="54" alt="Download on the App Store"></a>
+             The same place is in the last section ("price"), below. -->
+        <p class="soon">Yakında App Store’da</p>
+      </div>
     </div>
   </section>
 
-  <section class="band twelve" aria-labelledby="h-twelve">
-    <div class="words"><h2 id="h-twelve">On iki küçük dünya</h2></div>
-    <ul class="worlds">
-      <li><div class="win"><div class="win__media clip-a"><img src="/assets/home/w-pond.webp" width="440" height="440" alt="Gölet: nilüfer yaprağında bir kurbağa" loading="lazy" decoding="async"></div><svg class="win__ring" viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true" focusable="false"><use href="#ring-a"/><use href="#ring-a" transform="rotate(3 .5 .5)"/></svg></div></li>
-      <li><div class="win"><div class="win__media clip-b"><img src="/assets/home/w-farm.webp" width="440" height="440" alt="Çiftlik: çamaşır ipinin önünde bir koyun" loading="lazy" decoding="async"></div><svg class="win__ring" viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true" focusable="false"><use href="#ring-b"/><use href="#ring-b" transform="rotate(3 .5 .5)"/></svg></div></li>
-      <li><div class="win"><div class="win__media clip-c"><img src="/assets/home/w-music.webp" width="440" height="440" alt="Müzik odası: gökkuşağı renkli bir ksilofon" loading="lazy" decoding="async"></div><svg class="win__ring" viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true" focusable="false"><use href="#ring-c"/><use href="#ring-c" transform="rotate(3 .5 .5)"/></svg></div></li>
-      <li><div class="win"><div class="win__media clip-d"><img src="/assets/home/w-board.webp" width="440" height="440" alt="Düğme panosu: üç düğme ve kapısındaki fare" loading="lazy" decoding="async"></div><svg class="win__ring" viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true" focusable="false"><use href="#ring-d"/><use href="#ring-d" transform="rotate(3 .5 .5)"/></svg></div></li>
-      <li><div class="win"><div class="win__media clip-a"><img src="/assets/home/w-garden.webp" width="440" height="440" alt="Bahçe: bir ayçiçeği ve bir domates fidesi" loading="lazy" decoding="async"></div><svg class="win__ring" viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true" focusable="false"><use href="#ring-a"/><use href="#ring-a" transform="rotate(3 .5 .5)"/></svg></div></li>
-      <li><div class="win"><div class="win__media clip-b"><img src="/assets/home/w-reef.webp" width="440" height="440" alt="Deniz altı: deniz kabukları tutan bir ahtapot" loading="lazy" decoding="async"></div><svg class="win__ring" viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true" focusable="false"><use href="#ring-b"/><use href="#ring-b" transform="rotate(3 .5 .5)"/></svg></div></li>
-      <li><div class="win"><div class="win__media clip-c"><img src="/assets/home/w-kitchen.webp" width="440" height="440" alt="Mutfak: ocakta çorba" loading="lazy" decoding="async"></div><svg class="win__ring" viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true" focusable="false"><use href="#ring-c"/><use href="#ring-c" transform="rotate(3 .5 .5)"/></svg></div></li>
-      <li><div class="win"><div class="win__media clip-d"><img src="/assets/home/w-studio.webp" width="440" height="440" alt="Atölye: bir ayı ve çiçek resmi" loading="lazy" decoding="async"></div><svg class="win__ring" viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true" focusable="false"><use href="#ring-d"/><use href="#ring-d" transform="rotate(3 .5 .5)"/></svg></div></li>
-      <li><div class="win"><div class="win__media clip-a"><img src="/assets/home/w-street.webp" width="440" height="440" alt="Sokak: dükkânlar ve bir trafik ışığı" loading="lazy" decoding="async"></div><svg class="win__ring" viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true" focusable="false"><use href="#ring-a"/><use href="#ring-a" transform="rotate(3 .5 .5)"/></svg></div></li>
-      <li><div class="win"><div class="win__media clip-b"><img src="/assets/home/w-winter.webp" width="440" height="440" alt="Kış: şapkasında kızılgerdan olan bir kardan adam" loading="lazy" decoding="async"></div><svg class="win__ring" viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true" focusable="false"><use href="#ring-b"/><use href="#ring-b" transform="rotate(3 .5 .5)"/></svg></div></li>
-      <li><div class="win"><div class="win__media clip-c"><img src="/assets/home/w-space.webp" width="440" height="440" alt="Uzay: gülümseyen bir güneş, gezegenler ve bir astronot" loading="lazy" decoding="async"></div><svg class="win__ring" viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true" focusable="false"><use href="#ring-c"/><use href="#ring-c" transform="rotate(3 .5 .5)"/></svg></div></li>
-      <li><div class="win"><div class="win__media clip-d"><img src="/assets/home/w-dino.webp" width="440" height="440" alt="Dinozor vadisi: yuvada yumurtadan çıkan yavrular" loading="lazy" decoding="async"></div><svg class="win__ring" viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true" focusable="false"><use href="#ring-d"/><use href="#ring-d" transform="rotate(3 .5 .5)"/></svg></div></li>
-    </ul>
-  </section>
-
-  <section class="band touch" aria-labelledby="h-touch">
-    <div class="words"><h2 id="h-touch">Dokunduğu her şey canlanır</h2></div>
-    <figure class="frame"><figcaption class="vh">Akşam karında kış: aya dokununca kuzey ışıkları çıkıyor, kutup ayısı kızağıyla tepeden buzun üstüne kayıyor</figcaption><video muted loop playsinline preload="none" poster="/assets/home/winter-sled.jpg" aria-hidden="true" data-clip><source data-src="/assets/home/winter-sled.webm" type="video/webm"><source data-src="/assets/home/winter-sled.mp4" type="video/mp4"></video><button class="play" type="button" data-pause="Videoyu durdur" data-play="Videoyu oynat" aria-label="Videoyu durdur" hidden><svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="2" width="3.6" height="12" rx="1.2"/><rect x="9.4" y="2" width="3.6" height="12" rx="1.2"/></svg><svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8c0 .8.9 1.3 1.6.8l8.2-5.4c.6-.4.6-1.2 0-1.6L5.6 1.8C4.9 1.3 4 1.8 4 2.6z"/></svg></button></figure>
+  <section class="band worlds" id="worlds" aria-labelledby="h-worlds">
+    <div class="words"><h2 id="h-worlds">On iki küçük dünya</h2></div>
+    <div class="ws">
+      <figure class="frame screen">
+        <div class="screen-in">
+          <video muted loop playsinline preload="none" poster="/assets/home/stage/farm.jpg" aria-hidden="true" data-stage="farm"></video>
+        </div>
+        <button class="play" type="button" data-pause="Videoyu durdur" data-play="Videoyu oynat" aria-label="Videoyu durdur" hidden><svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="2" width="3.6" height="12" rx="1.2"/><rect x="9.4" y="2" width="3.6" height="12" rx="1.2"/></svg><svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8c0 .8.9 1.3 1.6.8l8.2-5.4c.6-.4.6-1.2 0-1.6L5.6 1.8C4.9 1.3 4 1.8 4 2.6z"/></svg></button>
+        <figcaption class="screen-name" aria-live="polite"><span class="nm">Çiftlik</span><span class="vh"> Yel değirmeni dönüyor, inek ahırdan başını uzatıyor.</span></figcaption>
+      </figure>
+      <ul class="picker">
+        <li><button type="button" class="pick" aria-pressed="false" data-world="pond" data-name="Gölet" data-act="Kurbağa nilüfer yaprağından zıplıyor, ördek yanından geçiyor."><span class="win"><span class="win__media clip-a"><img src="/assets/home/w-pond.webp" width="440" height="440" alt="" loading="lazy" decoding="async"></span><svg class="win__ring" viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true" focusable="false"><use href="#ring-a"/><use href="#ring-a" transform="rotate(3 .5 .5)"/></svg></span><span class="vh">Gölet</span></button></li>
+        <li><button type="button" class="pick" aria-pressed="true" data-world="farm" data-name="Çiftlik" data-act="Yel değirmeni dönüyor, inek ahırdan başını uzatıyor."><span class="win"><span class="win__media clip-b"><img src="/assets/home/w-farm.webp" width="440" height="440" alt="" loading="lazy" decoding="async"></span><svg class="win__ring" viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true" focusable="false"><use href="#ring-b"/><use href="#ring-b" transform="rotate(3 .5 .5)"/></svg></span><span class="vh">Çiftlik</span></button></li>
+        <li><button type="button" class="pick" aria-pressed="false" data-world="music" data-name="Müzik odası" data-act="Bir parmak ksilofonun üstünden geçiyor, notalar şarkı çarkına uçuyor."><span class="win"><span class="win__media clip-c"><img src="/assets/home/w-music.webp" width="440" height="440" alt="" loading="lazy" decoding="async"></span><svg class="win__ring" viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true" focusable="false"><use href="#ring-c"/><use href="#ring-c" transform="rotate(3 .5 .5)"/></svg></span><span class="vh">Müzik odası</span></button></li>
+        <li><button type="button" class="pick" aria-pressed="false" data-world="board" data-name="Düğme panosu" data-act="Küçük kapı açılıyor, içinden bir fare bakıyor; düğmelerin üstündeki ışıklar yanıyor."><span class="win"><span class="win__media clip-d"><img src="/assets/home/w-board.webp" width="440" height="440" alt="" loading="lazy" decoding="async"></span><svg class="win__ring" viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true" focusable="false"><use href="#ring-d"/><use href="#ring-d" transform="rotate(3 .5 .5)"/></svg></span><span class="vh">Düğme panosu</span></button></li>
+        <li><button type="button" class="pick" aria-pressed="false" data-world="garden" data-name="Bahçe" data-act="Saksıya bir tohum ekiliyor, sulanıyor ve filizleniyor; bir domates toplanıyor."><span class="win"><span class="win__media clip-a"><img src="/assets/home/w-garden.webp" width="440" height="440" alt="" loading="lazy" decoding="async"></span><svg class="win__ring" viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true" focusable="false"><use href="#ring-a"/><use href="#ring-a" transform="rotate(3 .5 .5)"/></svg></span><span class="vh">Bahçe</span></button></li>
+        <li><button type="button" class="pick" aria-pressed="false" data-world="reef" data-name="Deniz altı" data-act="Utangaç ahtapotun rengi soluyor, balıklar kaçışıyor, yengeç yan yan yürüyor."><span class="win"><span class="win__media clip-b"><img src="/assets/home/w-reef.webp" width="440" height="440" alt="" loading="lazy" decoding="async"></span><svg class="win__ring" viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true" focusable="false"><use href="#ring-b"/><use href="#ring-b" transform="rotate(3 .5 .5)"/></svg></span><span class="vh">Deniz altı</span></button></li>
+        <li><button type="button" class="pick" aria-pressed="false" data-world="kitchen" data-name="Mutfak" data-act="Mısır doğranıyor, buzdolabı açılıyor, ekmekler makineden fırlıyor."><span class="win"><span class="win__media clip-c"><img src="/assets/home/w-kitchen.webp" width="440" height="440" alt="" loading="lazy" decoding="async"></span><svg class="win__ring" viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true" focusable="false"><use href="#ring-c"/><use href="#ring-c" transform="rotate(3 .5 .5)"/></svg></span><span class="vh">Mutfak</span></button></li>
+        <li><button type="button" class="pick" aria-pressed="false" data-world="studio" data-name="Atölye" data-act="Tuvalin üstüne kırmızı ve mavi boya sürülüyor."><span class="win"><span class="win__media clip-d"><img src="/assets/home/w-studio.webp" width="440" height="440" alt="" loading="lazy" decoding="async"></span><svg class="win__ring" viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true" focusable="false"><use href="#ring-d"/><use href="#ring-d" transform="rotate(3 .5 .5)"/></svg></span><span class="vh">Atölye</span></button></li>
+        <li><button type="button" class="pick" aria-pressed="false" data-world="street" data-name="Sokak" data-act="Trafik ışığı değişiyor, güvercinler havalanıyor, bir araba yola çıkıyor."><span class="win"><span class="win__media clip-a"><img src="/assets/home/w-street.webp" width="440" height="440" alt="" loading="lazy" decoding="async"></span><svg class="win__ring" viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true" focusable="false"><use href="#ring-a"/><use href="#ring-a" transform="rotate(3 .5 .5)"/></svg></span><span class="vh">Sokak</span></button></li>
+        <li><button type="button" class="pick" aria-pressed="false" data-world="winter" data-name="Kış" data-act="Bir kar topu kardan adama yuvarlanıyor, kuzey ışıkları çıkıyor, kutup ayısı tepeden kızakla kayıyor."><span class="win"><span class="win__media clip-b"><img src="/assets/home/w-winter.webp" width="440" height="440" alt="" loading="lazy" decoding="async"></span><svg class="win__ring" viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true" focusable="false"><use href="#ring-b"/><use href="#ring-b" transform="rotate(3 .5 .5)"/></svg></span><span class="vh">Kış</span></button></li>
+        <li><button type="button" class="pick" aria-pressed="false" data-world="space" data-name="Uzay" data-act="Roket kalkıyor ve Ay’a iniyor."><span class="win"><span class="win__media clip-c"><img src="/assets/home/w-space.webp" width="440" height="440" alt="" loading="lazy" decoding="async"></span><svg class="win__ring" viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true" focusable="false"><use href="#ring-c"/><use href="#ring-c" transform="rotate(3 .5 .5)"/></svg></span><span class="vh">Uzay</span></button></li>
+        <li><button type="button" class="pick" aria-pressed="false" data-world="dino" data-name="Dinozor vadisi" data-act="T-rex kükrüyor, yanardağ duman üflüyor."><span class="win"><span class="win__media clip-d"><img src="/assets/home/w-dino.webp" width="440" height="440" alt="" loading="lazy" decoding="async"></span><svg class="win__ring" viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true" focusable="false"><use href="#ring-d"/><use href="#ring-d" transform="rotate(3 .5 .5)"/></svg></span><span class="vh">Dinozor vadisi</span></button></li>
+      </ul>
+    </div>
   </section>
 
   <section class="band montessori" aria-labelledby="h-montessori">
@@ -178,7 +181,7 @@
         <p class="say">Tek bir satın alma diğer sekizini açar. Abonelik yok.</p>
         <div class="store">
           <!-- App Store: the official badge goes here too, once the app is live (see the hero). -->
-          <p class="store-soon">Yakında App Store’da</p>
+          <p class="soon">Yakında App Store’da</p>
         </div>
       </div>
       <figure class="frame"><picture><source type="image/avif" srcset="/assets/home/picker-700.avif 700w, /assets/home/picker-1400.avif 1400w" sizes="(min-width: 900px) 44rem, 100vw"><source type="image/webp" srcset="/assets/home/picker-700.webp 700w, /assets/home/picker-1400.webp 1400w" sizes="(min-width: 900px) 44rem, 100vw"><img src="/assets/home/picker-700.jpg" srcset="/assets/home/picker-700.jpg 700w, /assets/home/picker-1400.jpg 1400w" sizes="(min-width: 900px) 44rem, 100vw" width="1400" height="1011" alt="Dünya seçici: on iki yuvarlak pencere; gölet, çiftlik, mutfak ve kış açık, diğer sekizinde küçük bir asma kilit var" loading="lazy" decoding="async"></picture></figure>
@@ -197,42 +200,88 @@
   <p class="mark"><img src="/assets/img/mark.png" alt="" width="32" height="32">© 2026 Mert Gözükara</p>
 </footer>
 <script>
-/* The clips: loaded when they come near the screen, played only when motion is welcome; each has a pause button. */
+/* The clips. The hero's loads when it is on screen; the stage's loads only for the world that is chosen. Under reduced
+   motion nothing plays and the posters stay. Every clip has a pause button. */
 (function () {
   var still = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var clips = [].slice.call(document.querySelectorAll('video[data-clip]'));
-  function load(v) {
-    if (v.dataset.loaded) return;
-    v.dataset.loaded = '1';
-    [].forEach.call(v.querySelectorAll('source[data-src]'), function (s) { s.src = s.dataset.src; });
-    v.load();
-  }
-  function set(v, b, playing) {
+  var webm = document.createElement('video').canPlayType('video/webm; codecs="vp9"') ? 'webm' : 'mp4';
+  function btnOf(v) { return v.closest('.win, .frame').querySelector('.play'); }
+  function mark(b, playing) {
+    if (!b) return;
     b.classList.toggle('paused', !playing);
     b.setAttribute('aria-label', playing ? b.dataset.pause : b.dataset.play);
   }
-  function play(v, b) {
-    load(v);
+  function start(v) {
     var p = v.play();
-    if (p && p.catch) p.catch(function () { set(v, b, false); });
-    set(v, b, true);
+    mark(btnOf(v), true);
+    if (p && p.catch) p.catch(function () { mark(btnOf(v), false); });
   }
-  clips.forEach(function (v) {
-    var b = v.closest('.win, .frame').querySelector('.play');
+  function wire(v, load) {
+    var b = btnOf(v);
     if (!b) return;
     b.hidden = false;
     v.userPaused = still;
-    set(v, b, !still);
+    mark(b, !still);
     b.addEventListener('click', function () {
-      if (v.paused) { v.userPaused = false; play(v, b); } else { v.userPaused = true; v.pause(); set(v, b, false); }
+      if (v.paused) { v.userPaused = false; load(); start(v); }
+      else { v.userPaused = true; v.pause(); mark(b, false); }
     });
-    if (!('IntersectionObserver' in window)) { if (!still) play(v, b); return; }
+    if (!('IntersectionObserver' in window)) { if (!still) { load(); start(v); } return; }
     new IntersectionObserver(function (es) {
       es.forEach(function (e) {
-        if (e.isIntersecting) { if (!v.userPaused) play(v, b); }
-        else if (!v.paused) { v.pause(); }
+        if (e.isIntersecting) { if (!v.userPaused) { load(); start(v); } }
+        else if (!v.paused) v.pause();
       });
-    }, { rootMargin: '200px 0px' }).observe(v);
+    }, { rootMargin: '150px 0px' }).observe(v);
+  }
+
+  // The hero
+  [].forEach.call(document.querySelectorAll('video[data-clip]'), function (v) {
+    wire(v, function () {
+      if (v.dataset.loaded) return;
+      v.dataset.loaded = '1';
+      [].forEach.call(v.querySelectorAll('source[data-src]'), function (s) { s.src = s.dataset.src; });
+      v.load();
+    });
+  });
+
+  // The stage: twelve windows, one screen
+  var v = document.querySelector('video[data-stage]');
+  if (!v) return;
+  var dir = '/assets/home/stage/';
+  var screen = v.closest('.screen');
+  var inner = screen.querySelector('.screen-in');
+  var nm = screen.querySelector('.nm');
+  var act = screen.querySelector('.screen-name .vh');
+  var picks = [].slice.call(document.querySelectorAll('.pick'));
+  var world = v.dataset.stage;
+  function loadWorld() {
+    var want = dir + world + '.' + webm;
+    if (v.getAttribute('src') !== want) { v.setAttribute('src', want); v.load(); }
+  }
+  wire(v, loadWorld);
+  picks.forEach(function (b) {
+    b.addEventListener('click', function () {
+      if (b.dataset.world === world) return;
+      world = b.dataset.world;
+      picks.forEach(function (o) { o.setAttribute('aria-pressed', o === b ? 'true' : 'false'); });
+      nm.textContent = b.dataset.name;
+      act.textContent = ' ' + b.dataset.act;
+      v.pause();
+      v.removeAttribute('src');
+      v.load();
+      v.setAttribute('poster', dir + world + '.jpg');
+      if (!still) {
+        // the window opens onto its world, as it does in the app
+        var r = b.getBoundingClientRect(), s = inner.getBoundingClientRect();
+        var x = Math.max(0, Math.min(100, (r.left + r.width / 2 - s.left) / s.width * 100));
+        var y = Math.max(0, Math.min(100, (r.top + r.height / 2 - s.top) / s.height * 100));
+        if (inner.animate) inner.animate(
+          [{ clipPath: 'circle(8% at ' + x + '% ' + y + '%)' }, { clipPath: 'circle(150% at ' + x + '% ' + y + '%)' }],
+          { duration: 650, easing: 'cubic-bezier(.3,.7,.2,1)' });
+        if (!v.userPaused) { loadWorld(); start(v); }
+      }
+    });
   });
 })();
 </script>
