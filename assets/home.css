@@ -134,7 +134,11 @@ html { overflow-x: hidden; overflow-x: clip; }
 }
 .screen { margin: 0; }
 .screen-in { position: relative; aspect-ratio: 3 / 2; background: var(--paper-deep); }
-.screen-in video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.screen-in { background-size: cover; background-position: center; }
+.screen-top { position: absolute; inset: 0; }
+.screen-still { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.screen-in video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0; transition: opacity .25s ease; }
+.screen-in video.on { opacity: 1; }
 .screen-name { display: block; padding: 0.75rem 1.1rem 0.85rem; background: var(--paper-light); font-weight: 800; font-size: 1.1rem; line-height: 1.3; }
 .screen .play { top: 1rem; right: 1rem; bottom: auto; }
 .picker { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(0.6rem, 2vw, 1.4rem) clamp(0.4rem, 1.6vw, 1.1rem); }
@@ -249,3 +253,7 @@ figure.win { margin: 0; }
 @media (max-width: 560px) { .article .pair { grid-template-columns: 1fr; } }
 @media (max-width: 899px) { .hero-grid .stage { margin-top: 1rem; } }
 @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+
+/* The page's end: only the store's place (the badge once the app is live). */
+.band.end { padding-top: 0; }
+.store--end { display: flex; justify-content: center; text-align: center; }

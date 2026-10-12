@@ -174,17 +174,10 @@
     </div>
   </section>
 
-  <section class="band price" aria-labelledby="h-price">
-    <div class="split split--flip">
-      <div class="words">
-        <h2 id="h-price">Dört dünya ücretsiz</h2>
-        <p class="say">Tek bir satın alma diğer sekizini açar. Abonelik yok.</p>
-        <div class="store">
-          <!-- App Store: the official badge goes here too, once the app is live (see the hero). -->
-          <p class="soon">Yakında App Store’da</p>
-        </div>
-      </div>
-      <figure class="frame"><picture><source type="image/avif" srcset="/assets/home/picker-700.avif 700w, /assets/home/picker-1400.avif 1400w" sizes="(min-width: 900px) 44rem, 100vw"><source type="image/webp" srcset="/assets/home/picker-700.webp 700w, /assets/home/picker-1400.webp 1400w" sizes="(min-width: 900px) 44rem, 100vw"><img src="/assets/home/picker-700.jpg" srcset="/assets/home/picker-700.jpg 700w, /assets/home/picker-1400.jpg 1400w" sizes="(min-width: 900px) 44rem, 100vw" width="1400" height="1011" alt="Dünya seçici: on iki yuvarlak pencere; gölet, çiftlik, mutfak ve kış açık, diğer sekizinde küçük bir asma kilit var" loading="lazy" decoding="async"></picture></figure>
+  <section class="band end" aria-label="App Store">
+    <div class="store store--end">
+      <!-- App Store: the official badge goes here too, once the app is live (see the hero). -->
+      <p class="soon">Yakında App Store’da</p>
     </div>
   </section>
 
@@ -255,6 +248,29 @@
   var act = screen.querySelector('.screen-name .vh');
   var picks = [].slice.call(document.querySelectorAll('.pick'));
   var world = v.dataset.stage;
+  // Two layers, so a switch never shows a glimpse of the world before: the screen keeps the old world's still behind,
+  // and the new world opens on top with its own still already loaded; its clip fades in only once it plays.
+  var top = document.createElement('div');
+  top.className = 'screen-top';
+  var still0 = new Image();
+  still0.className = 'screen-still';
+  still0.alt = '';
+  still0.src = dir + world + '.jpg';
+  inner.appendChild(top);
+  top.appendChild(still0);
+  top.appendChild(v);
+  v.addEventListener('playing', function () { v.classList.add('on'); });
+  var seq = 0, warmed = false;
+  function warm() {
+    if (warmed) return;
+    warmed = true;
+    picks.forEach(function (b) { new Image().src = dir + b.dataset.world + '.jpg'; });
+  }
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (es, o) {
+      if (es.some(function (e) { return e.isIntersecting; })) { warm(); o.disconnect(); }
+    }, { rootMargin: '400px 0px' }).observe(screen);
+  } else warm();
   function loadWorld() {
     var want = dir + world + '.' + webm;
     if (v.getAttribute('src') !== want) { v.setAttribute('src', want); v.load(); }
@@ -263,24 +279,36 @@
   picks.forEach(function (b) {
     b.addEventListener('click', function () {
       if (b.dataset.world === world) return;
+      var was = world;
       world = b.dataset.world;
+      var mine = ++seq;
       picks.forEach(function (o) { o.setAttribute('aria-pressed', o === b ? 'true' : 'false'); });
       nm.textContent = b.dataset.name;
       act.textContent = ' ' + b.dataset.act;
+      // behind: the world being left, as a still; on top: nothing of it is left playing
+      inner.style.backgroundImage = 'url(' + dir + was + '.jpg)';
+      v.classList.remove('on');
       v.pause();
       v.removeAttribute('src');
       v.load();
       v.setAttribute('poster', dir + world + '.jpg');
-      if (!still) {
+      var next = new Image();
+      function reveal() {
+        if (mine !== seq) return;
+        still0.src = next.src;
+        if (still) return;
         // the window opens onto its world, as it does in the app
         var r = b.getBoundingClientRect(), s = inner.getBoundingClientRect();
         var x = Math.max(0, Math.min(100, (r.left + r.width / 2 - s.left) / s.width * 100));
         var y = Math.max(0, Math.min(100, (r.top + r.height / 2 - s.top) / s.height * 100));
-        if (inner.animate) inner.animate(
+        if (top.animate) top.animate(
           [{ clipPath: 'circle(8% at ' + x + '% ' + y + '%)' }, { clipPath: 'circle(150% at ' + x + '% ' + y + '%)' }],
           { duration: 650, easing: 'cubic-bezier(.3,.7,.2,1)' });
         if (!v.userPaused) { loadWorld(); start(v); }
       }
+      next.onload = next.onerror = reveal;
+      next.src = dir + world + '.jpg';
+      if (next.complete) reveal();
     });
   });
 })();
