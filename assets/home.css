@@ -194,3 +194,42 @@ figure.win { margin: 0; }
   .hero .stage { width: min(100%, 44rem); }
   .made .split { grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr); }
 }
+
+/* Montessori: a few short principles beside the real-life worlds */
+.principles { list-style: none; margin: clamp(1.4rem, 2.5vw, 2rem) 0 0; padding: 0; max-width: 30rem; }
+.principles li {
+  position: relative; padding: 0.85rem 0 0.85rem 2.1rem;
+  font-size: clamp(1.08rem, 1.5vw, 1.25rem); line-height: 1.38; font-weight: 700;
+  border-top: 1px solid var(--line);
+}
+.principles li:last-child { border-bottom: 1px solid var(--line); }
+.principles li::before {
+  content: ""; position: absolute; left: 0.2rem; top: 1.12rem; width: 0.95rem; height: 0.95rem;
+  border: 2.5px solid var(--ink); border-radius: 52% 48% 55% 45% / 47% 55% 45% 53%;
+}
+.more { margin-top: 1.5rem; font-weight: 800; font-size: 1.08rem; }
+.more a { text-decoration-thickness: 2px; }
+.m-stage { position: relative; padding: 8% 10% 12% 4%; }
+.m-stage .frame { transform: rotate(0.8deg); }
+.m-stage .win { position: absolute; --ring: 3.5px; }
+.m-stage .m-w1 { width: 30%; right: 0; top: -2%; }
+.m-stage .m-w2 { width: 26%; left: -2%; bottom: 0; }
+@media (prefers-reduced-motion: reduce) { .m-stage .frame { transform: none; } }
+
+/* The Montessori article */
+.article { max-width: 46rem; }
+.article h1 { font-size: clamp(2.6rem, 7vw, 4.4rem); font-weight: 900; letter-spacing: -0.035em; line-height: 0.95; margin-bottom: 1.25rem; }
+.article .lede { font-size: clamp(1.2rem, 2.2vw, 1.4rem); line-height: 1.5; font-weight: 600; color: var(--ink-soft); max-width: 36rem; }
+.article h2 { font-size: clamp(1.6rem, 3.6vw, 2.1rem); font-weight: 900; letter-spacing: -0.02em; margin: 3rem 0 0.8rem; }
+.article p { max-width: 38rem; }
+.article .frame { margin: 2rem 0 0.6rem; max-width: 44rem; }
+.article figcaption.cap { font-size: 0.98rem; color: var(--ink-soft); font-weight: 600; max-width: 38rem; margin-top: 0.4rem; }
+.article figure.shot { margin: 2rem 0 0; }
+.article figure.shot .frame { margin: 0 0 0.6rem; }
+.article ul.tips { padding-left: 1.25rem; max-width: 38rem; }
+.article ul.tips li + li { margin-top: 0.55rem; }
+.article .end { margin-top: 3rem; display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.5rem; }
+.article .store-soon { margin: 0; }
+.article .pair { display: grid; gap: 1rem; margin: 2rem 0 0; grid-template-columns: 1fr 1fr; max-width: 44rem; }
+.article .pair .frame { margin: 0; }
+@media (max-width: 560px) { .article .pair { grid-template-columns: 1fr; } }
