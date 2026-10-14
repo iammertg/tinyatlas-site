@@ -87,7 +87,7 @@
         <i class="ff"></i><i class="ff"></i><i class="ff"></i><i class="ff"></i><i class="ff"></i><i class="ff"></i><i class="ff"></i>
         <figure class="win win--big">
           <figcaption class="vh">Güneşli bir günde gölet: kurbağa nilüfer yaprağından zıplıyor, küçük kurbağalar yakındaki yapraklarda oturuyor</figcaption>
-          <div class="win__media clip-a"><video muted loop playsinline preload="none" poster="/assets/home/pond-day.jpg" aria-hidden="true" data-clip><source data-src="/assets/home/pond-day.webm" type="video/webm"><source data-src="/assets/home/pond-day.mp4" type="video/mp4"></video></div>
+          <div class="win__media clip-a"><video muted loop playsinline preload="none" poster="/assets/home/pond-day.jpg" aria-hidden="true" data-clip><source data-src="/assets/home/pond-day.mp4" type="video/mp4"></video></div>
           <button class="play" type="button" data-pause="Videoyu durdur" data-play="Videoyu oynat" aria-label="Videoyu durdur" hidden><svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="2" width="3.6" height="12" rx="1.2"/><rect x="9.4" y="2" width="3.6" height="12" rx="1.2"/></svg><svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8c0 .8.9 1.3 1.6.8l8.2-5.4c.6-.4.6-1.2 0-1.6L5.6 1.8C4.9 1.3 4 1.8 4 2.6z"/></svg></button>
           <svg class="win__ring" viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true" focusable="false"><use href="#ring-a"/></svg>
         </figure>
@@ -208,7 +208,6 @@
    on the night around it. */
 (function () {
   var still = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var webm = document.createElement('video').canPlayType('video/webm; codecs="vp9"') ? 'webm' : 'mp4';
   var tints = { pond: 'rgba(156,201,138,.34)', farm: 'rgba(222,196,140,.34)', music: 'rgba(230,170,110,.32)', board: 'rgba(222,196,140,.3)',
     garden: 'rgba(196,214,140,.32)', reef: 'rgba(120,190,190,.34)', kitchen: 'rgba(170,205,220,.32)', studio: 'rgba(230,220,200,.3)',
     street: 'rgba(232,180,150,.32)', winter: 'rgba(200,196,230,.36)', space: 'rgba(140,150,220,.36)', dino: 'rgba(180,205,130,.32)' };
@@ -280,13 +279,15 @@
     warmed = true;
     picks.forEach(function (b) { new Image().src = dir + b.dataset.world + '.jpg'; });
   }
-  if ('IntersectionObserver' in window) {
+  // the stills are warmed ahead only on a wide screen; a phone fetches each on the tap
+  var wide = !window.matchMedia || matchMedia('(min-width: 900px)').matches;
+  if (wide && 'IntersectionObserver' in window) {
     new IntersectionObserver(function (es, o) {
       if (es.some(function (e) { return e.isIntersecting; })) { warm(); o.disconnect(); }
     }, { rootMargin: '400px 0px' }).observe(screen);
-  } else warm();
+  } else if (wide) warm();
   function loadWorld() {
-    var want = dir + world + '.' + webm;
+    var want = dir + world + '.mp4';
     if (v.getAttribute('src') !== want) { v.setAttribute('src', want); v.load(); }
   }
   wire(v, loadWorld);

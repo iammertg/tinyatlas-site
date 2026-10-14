@@ -150,7 +150,7 @@ figure.win { margin: 0; }
 .screen { position: relative; margin: 0 auto; max-width: 66rem; width: 100%; }
 .screen::before { content: ""; position: absolute; inset: -14% -10% -18%; z-index: 0; pointer-events: none; background: radial-gradient(closest-side, var(--tint, rgba(244, 207, 120, 0.28)), transparent 72%); transition: background .8s; }
 .screen-in {
-  position: relative; z-index: 1; aspect-ratio: 3 / 2; border-radius: 26px; overflow: hidden;
+  position: relative; z-index: 1; aspect-ratio: 2360 / 1640; border-radius: 26px; overflow: hidden;
   background: var(--well); background-size: cover; background-position: center;
   box-shadow: 0 1px 0 rgba(243, 234, 219, 0.12) inset, 0 60px 90px -40px rgba(0, 0, 0, 0.75);
 }
