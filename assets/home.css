@@ -1,43 +1,29 @@
-/* Tiny Atlas landing (/ and /tr/). The paper, ink and footer come from site.css;
-   this file is the landing's own: big round windows, one idea per screen. */
+/* Tiny Atlas landing (/ and /tr/) and the Montessori article. The night, the type and the footer come from site.css;
+   this file is the landing's own: the lantern in the hero, twelve lit windows, one idea per screen. */
 :root {
-  --night: #26305A;
-  --mint: #D6F1DF;
-  --leaf: #3E7A55;
-  --card: #FFFDF8;
-  --page: 78rem;
-  --pad: clamp(1rem, 5vw, 3.5rem);
-  --step: clamp(5.5rem, 13vw, 11rem);
+  --page: 76rem;
+  --pad: clamp(1.25rem, 5vw, 4rem);
+  --step: clamp(6rem, 13vw, 11rem);
 }
 
-html { overflow-x: hidden; overflow-x: clip; }
-.home main { flex: 1; }
+html { overflow-x: clip; }
+.home main { flex: 1; overflow-x: clip; }
+.home .foot { overflow-x: clip; }
 
-/* Header: only the language switch */
-.home .top { justify-content: flex-end; padding-top: 1rem; padding-bottom: 0; }
+/* Header: the mark and the language switch, on the landing's own width */
+.home .top { max-width: var(--page); padding: 1.25rem var(--pad) 0; }
 
 /* Type */
-.home h1 {
-  font-size: clamp(3.9rem, 11.5vw, 8.75rem);
-  font-weight: 900; letter-spacing: -0.045em; line-height: 0.86;
-}
-.home h2 {
-  font-size: clamp(2.6rem, 6.6vw, 5.4rem);
-  font-weight: 900; letter-spacing: -0.035em; line-height: 0.94;
-  margin: 0;
-}
+.home h1 { font-size: clamp(4.4rem, 11vw, 8.6rem); line-height: 0.9; letter-spacing: -0.03em; }
+.home h2 { font-size: clamp(2.4rem, 5.6vw, 4.4rem); line-height: 1; letter-spacing: -0.015em; margin: 0; }
 .say {
-  margin-top: clamp(1rem, 2vw, 1.5rem);
-  max-width: 27ch;
-  font-size: clamp(1.15rem, 1.7vw, 1.45rem); line-height: 1.4; font-weight: 600;
-  color: var(--ink-soft);
+  margin-top: clamp(1rem, 2vw, 1.4rem); max-width: 30ch;
+  font-size: clamp(1.15rem, 1.7vw, 1.4rem); line-height: 1.45; color: var(--ivory-2);
 }
-.aside {
-  margin-top: 1.25rem; max-width: 34ch;
-  font-size: 1.02rem; line-height: 1.45; font-weight: 700; color: var(--ink);
-}
+.vh { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.nw { white-space: nowrap; }
 
-/* Sections: one idea each, a lot of air between them */
+/* Sections: one idea each, a lot of night between them */
 .band { width: 100%; max-width: var(--page); margin: 0 auto; padding: var(--step) var(--pad) 0; }
 
 .split { display: grid; gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
@@ -47,213 +33,219 @@ html { overflow-x: hidden; overflow-x: clip; }
   .split--flip > .words { order: 2; }
 }
 
-/* A round window: the media clipped to a hand-drawn ring, a soft shadow on the paper under it */
+/* A round window: the media behind the app's hand-cut edge, one hairline, and light behind it */
 .win { position: relative; aspect-ratio: 1; width: 100%; }
-.win::after {
-  content: ""; position: absolute; left: 12%; right: 12%; bottom: -7%; height: 9%;
-  border-radius: 50%; background: var(--paper-deep); z-index: -1;
-}
-.win__media { position: absolute; inset: 0; overflow: hidden; background: var(--paper-deep); }
+.win__media { position: absolute; inset: 0; overflow: hidden; background: var(--well); }
 .win__media img, .win__media video { width: 100%; height: 100%; object-fit: cover; display: block; }
 .win__ring { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; fill: none; pointer-events: none; }
-.win__ring use { stroke: var(--ink); stroke-width: var(--ring, 4px); stroke-linejoin: round; vector-effect: non-scaling-stroke; }
-.win__ring use + use { stroke-width: calc(var(--ring, 4px) * 0.45); opacity: 0.4; }
+.win__ring use { stroke: rgba(243, 234, 219, 0.5); stroke-width: var(--ring, 1.5px); vector-effect: non-scaling-stroke; }
 .clip-a { clip-path: url(#clip-a); -webkit-clip-path: url(#clip-a); }
 .clip-b { clip-path: url(#clip-b); -webkit-clip-path: url(#clip-b); }
 .clip-c { clip-path: url(#clip-c); -webkit-clip-path: url(#clip-c); }
 .clip-d { clip-path: url(#clip-d); -webkit-clip-path: url(#clip-d); }
+figure.win { margin: 0; }
 
-/* A hand-cut frame for wide pictures: ink all the way round, corners that do not quite match */
+/* A frame for wide pictures: an even corner, a hairline, and the night's deep shadow */
 .frame {
-  position: relative; overflow: hidden; margin: 0;
-  border: 3px solid var(--ink);
-  border-radius: 30px 38px 34px 26px / 34px 28px 38px 30px;
-  background: var(--paper-deep);
-  box-shadow: 0 1.4rem 0 -0.9rem var(--paper-deep);
+  position: relative; overflow: hidden; margin: 0; border-radius: 26px; background: var(--well);
+  box-shadow: 0 1px 0 rgba(243, 234, 219, 0.12) inset, 0 40px 70px -34px rgba(0, 0, 0, 0.7);
 }
 .frame img, .frame video { display: block; width: 100%; height: auto; }
 
-/* Hero: the name, the pond, one line, the way to the worlds */
-.hero { padding-top: clamp(0.5rem, 3vw, 2.5rem); }
-.hero-grid { display: grid; gap: 0 clamp(2rem, 5vw, 4.5rem); grid-template-columns: minmax(0, 1fr); }
-.hero-grid h1 { margin-bottom: 0.4rem; }
-.hero .say { max-width: 24ch; margin-top: 0.4rem; }
-@media (min-width: 900px) {
-  .hero-grid { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); grid-template-rows: 1fr auto auto auto 1fr; }
-  .hero-grid h1 { grid-column: 1; grid-row: 2; }
-  .hero-grid .say { grid-column: 1; grid-row: 3; }
-  .hero-grid .cta { grid-column: 1; grid-row: 4; }
-  .hero-grid .stage { grid-column: 2; grid-row: 1 / 6; }
+/* The glow a picture throws on the night around it */
+.glow { position: absolute; inset: -10%; pointer-events: none; z-index: -1; }
+
+/* Hero: the name beside the lantern; on a narrow screen the name over it */
+.hero { padding-top: clamp(2rem, 5vw, 3.5rem); text-align: center; position: relative; }
+.hero-grid { display: grid; gap: clamp(2rem, 4vw, 3rem); align-items: center; }
+.hero .say { margin-left: auto; margin-right: auto; max-width: 28ch; }
+.cta { margin-top: clamp(1.5rem, 3vw, 2.2rem); display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 0.9rem 1.4rem; }
+@media (min-width: 960px) {
+  .hero { text-align: left; }
+  .hero-grid { grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); }
+  .hero .say { margin-left: 0; }
+  .cta { justify-content: flex-start; }
+  .stage { margin-top: 0; width: min(100%, 44rem); }
 }
-.cta { margin-top: clamp(1.4rem, 3vw, 2.25rem); display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1.25rem; }
 .go {
   display: inline-flex; align-items: center; min-height: 50px;
   padding: 0.7rem 1.5rem; border-radius: 999px;
-  background: var(--ink); color: var(--paper-light);
-  font-weight: 800; font-size: 1.08rem; line-height: 1.2; text-decoration: none;
+  background: var(--ivory); color: var(--night-0);
+  font-weight: 700; font-size: 1.08rem; line-height: 1.2; text-decoration: none;
 }
-.go:hover { background: #3a2d22; }
-.soon { margin: 0; font-size: 1rem; font-weight: 700; color: var(--ink-soft); }
-.store { margin-top: 1.5rem; }
-.stage { position: relative; width: min(100%, 38rem); margin: 0 auto; padding: 4% 6% 8% 2%; }
-.stage .win--big { --ring: 6px; }
-.stage .win--s1, .stage .win--s2 { position: absolute; --ring: 3.5px; }
-.stage .win--s1 { width: 27%; left: -3%; top: -2%; }
-.stage .win--s2 { width: 24%; right: -1%; bottom: 2%; }
+.go:hover { background: #fff; }
+.soon { margin: 0; font-size: 1rem; font-weight: 600; color: var(--ivory-2); }
 
-/* The one entrance: the windows open, nearest last */
+/* The App Store badge, once the app is live: Apple's white badge belongs on this ground. The drawn stand-in
+   below keeps the badge's proportions for the day the official artwork goes in. */
+.badge { display: inline-flex; align-items: center; gap: 0.6rem; min-height: 54px; padding: 0.45rem 1.1rem 0.45rem 0.9rem; border-radius: 10px; border: 1px solid var(--ivory); color: var(--ivory); text-decoration: none; background: rgba(20, 26, 56, 0.4); }
+.badge:hover { background: var(--ivory); color: var(--night-0); }
+.badge img { height: 54px; width: auto; }
+.store { margin: 0; }
+
+.stage { position: relative; width: min(100%, 40rem); margin: clamp(2rem, 5vw, 3rem) auto 0; padding: 5% 9% 7%; }
+.stage .glow { inset: -18% -10% -22%; z-index: auto; background: radial-gradient(closest-side, rgba(244, 207, 120, 0.3), rgba(244, 207, 120, 0.1) 42%, rgba(244, 207, 120, 0) 72%); }
+.stage .win--big { --ring: 1.5px; }
+.stage .win--s1, .stage .win--s2 { position: absolute; --ring: 1px; }
+.stage .win--s1 { width: 26%; left: -2%; top: 0; }
+.stage .win--s2 { width: 22%; right: 0; bottom: 4%; }
+.stage .win--s1 .win__media, .stage .win--s2 .win__media { opacity: 0.8; }
+/* the fireflies: a handful, slow */
+.ff { position: absolute; width: 5px; height: 5px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 10px 3px rgba(244, 207, 120, 0.5); opacity: 0.7; pointer-events: none; }
+.ff:nth-child(2) { left: 6%; top: 36%; } .ff:nth-child(3) { left: 14%; top: 70%; } .ff:nth-child(4) { left: 88%; top: 30%; }
+.ff:nth-child(5) { left: 94%; top: 58%; } .ff:nth-child(6) { left: 22%; top: 12%; } .ff:nth-child(7) { left: 78%; top: 88%; }
+.ff:nth-child(8) { left: 50%; top: -4%; }
+/* the sky: a few stars, still */
+.hero::before { content: ""; position: absolute; inset: 0 0 20%; pointer-events: none; opacity: 0.55;
+  background-image: radial-gradient(1.5px 1.5px at 8% 22%, #fff 50%, transparent 52%), radial-gradient(1px 1px at 18% 60%, #fff 50%, transparent 52%), radial-gradient(1.5px 1.5px at 30% 10%, #fff 50%, transparent 52%), radial-gradient(1px 1px at 70% 16%, #fff 50%, transparent 52%), radial-gradient(1.5px 1.5px at 84% 40%, #fff 50%, transparent 52%), radial-gradient(1px 1px at 92% 12%, #fff 50%, transparent 52%), radial-gradient(1px 1px at 60% 48%, #fff 50%, transparent 52%), radial-gradient(1px 1px at 4% 78%, #fff 50%, transparent 52%), radial-gradient(1.5px 1.5px at 96% 72%, #fff 50%, transparent 52%); }
+
+/* The one entrance: the lantern lights */
 @media (prefers-reduced-motion: no-preference) {
-  .stage .win { animation: open 1s cubic-bezier(.2, .9, .3, 1.2) both; }
-  .stage .win--big { animation-delay: .05s; }
-  .stage .win--s1 { animation-delay: .35s; }
-  .stage .win--s2 { animation-delay: .5s; }
-  @keyframes open { from { opacity: 0; transform: scale(.82) rotate(-4deg); } }
+  .stage .win, .stage .glow { animation: lit 0.9s cubic-bezier(.2, .8, .3, 1) both; }
+  .stage .glow { animation-delay: .1s; }
+  .stage .win--s1 { animation-delay: .2s; }
+  .stage .win--s2 { animation-delay: .3s; }
+  @keyframes lit { from { opacity: 0; transform: scale(.94); } }
+  .ff { animation: drift 16s ease-in-out infinite alternate, blink 6s ease-in-out infinite; }
+  .ff:nth-child(3) { animation-duration: 19s, 7s; animation-delay: -4s, -1s; }
+  .ff:nth-child(4) { animation-duration: 14s, 5s; animation-delay: -8s, -2s; }
+  .ff:nth-child(5) { animation-duration: 21s, 8s; animation-delay: -2s, -3s; }
+  .ff:nth-child(6) { animation-duration: 17s, 6.5s; animation-delay: -11s, -4s; }
+  .ff:nth-child(7) { animation-duration: 15s, 7.5s; animation-delay: -6s, -5s; }
+  .ff:nth-child(8) { animation-duration: 23s, 9s; animation-delay: -9s, -2.5s; }
+  @keyframes drift { from { transform: translate(0, 0); } to { transform: translate(28px, -22px); } }
+  @keyframes blink { 0%, 100% { opacity: 0.25; } 50% { opacity: 0.9; } }
 }
 
 /* The clip's pause button (moving pictures longer than five seconds need one) */
 .play {
   position: absolute; z-index: 2; width: 44px; height: 44px; border-radius: 50%;
-  border: 2px solid var(--ink); background: var(--paper-light); color: var(--ink);
+  border: 1px solid rgba(243, 234, 219, 0.55); background: rgba(20, 26, 56, 0.55); color: var(--ivory);
   display: grid; place-items: center; cursor: pointer; padding: 0;
+  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
 }
-.play svg { width: 16px; height: 16px; fill: currentColor; }
+.play svg { width: 15px; height: 15px; fill: currentColor; }
 .play .i-play { display: none; }
 .play.paused .i-play { display: block; }
 .play.paused .i-pause { display: none; }
 .play[hidden] { display: none; }
-.stage .play { left: 19%; bottom: 17%; }
+.stage .play { left: 20%; bottom: 16%; }
 .frame .play { right: 1rem; bottom: 1rem; }
 
-/* The worlds: twelve windows and one screen that opens on the one chosen */
-.worlds .words { text-align: center; }
-.worlds h2 { margin: 0 auto; }
-.ws { display: grid; gap: clamp(1.5rem, 3vw, 2.5rem); margin-top: clamp(2rem, 5vw, 3.5rem); align-items: center; }
-@media (min-width: 900px) {
-  .ws { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); }
-  .ws .picker { order: -1; }
+/* The worlds: twelve windows in a row, and the screen that opens on the one chosen */
+.worlds { text-align: center; }
+.worlds .words h2 { margin: 0 auto; }
+.ws { display: grid; gap: clamp(2rem, 4vw, 3rem); margin-top: clamp(1.75rem, 4vw, 2.75rem); }
+.picker { list-style: none; margin: 0 auto; padding: 0; max-width: 62rem; width: 100%; display: grid; grid-template-columns: repeat(12, 1fr); gap: clamp(0.5rem, 1.4vw, 1rem); }
+.pick { display: block; width: 100%; padding: 0; border: 0; background: none; cursor: pointer; border-radius: 50%; color: inherit; --ring: 1px; position: relative; }
+.pick .win { display: block; }
+.pick .win__media { opacity: 0.68; filter: saturate(0.8); transition: opacity .35s, filter .35s; }
+.pick .win::before { content: ""; position: absolute; inset: -30%; border-radius: 50%; background: radial-gradient(closest-side, rgba(244, 207, 120, 0.5), rgba(244, 207, 120, 0) 72%); opacity: 0; transition: opacity .4s; }
+@media (hover: hover) { .pick:hover .win__media { opacity: 0.9; filter: none; } }
+.pick[aria-pressed="true"] { --ring: 2px; }
+.pick[aria-pressed="true"] .win__media { opacity: 1; filter: none; }
+.pick[aria-pressed="true"] .win__ring use { stroke: var(--gold); }
+.pick[aria-pressed="true"] .win::before { opacity: 1; }
+.pick:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
+.screen { position: relative; margin: 0 auto; max-width: 66rem; width: 100%; }
+.screen::before { content: ""; position: absolute; inset: -14% -10% -18%; z-index: 0; pointer-events: none; background: radial-gradient(closest-side, var(--tint, rgba(244, 207, 120, 0.28)), transparent 72%); transition: background .8s; }
+.screen-in {
+  position: relative; z-index: 1; aspect-ratio: 3 / 2; border-radius: 26px; overflow: hidden;
+  background: var(--well); background-size: cover; background-position: center;
+  box-shadow: 0 1px 0 rgba(243, 234, 219, 0.12) inset, 0 60px 90px -40px rgba(0, 0, 0, 0.75);
 }
-.screen { margin: 0; }
-.screen-in { position: relative; aspect-ratio: 3 / 2; background: var(--paper-deep); }
-.screen-in { background-size: cover; background-position: center; }
 .screen-top { position: absolute; inset: 0; }
 .screen-still { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
 .screen-in video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0; transition: opacity .25s ease; }
 .screen-in video.on { opacity: 1; }
-.screen-name { display: block; padding: 0.75rem 1.1rem 0.85rem; background: var(--paper-light); font-weight: 800; font-size: 1.1rem; line-height: 1.3; }
-.screen .play { top: 1rem; right: 1rem; bottom: auto; }
-.picker { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(0.6rem, 2vw, 1.4rem) clamp(0.4rem, 1.6vw, 1.1rem); }
-.pick {
-  display: block; width: 100%; padding: 0; border: 0; background: none; cursor: pointer;
-  border-radius: 50%; color: inherit; --ring: 2.5px;
-}
-.pick .win { display: block; transition: transform .3s cubic-bezier(.2, .9, .3, 1.3); }
-.pick .win::after { transition: background .2s; }
-.pick[aria-pressed="true"] { --ring: 5px; }
-.pick[aria-pressed="true"] .win { transform: scale(1.14) translateY(-4%) rotate(-3deg); }
-.pick[aria-pressed="true"] .win::after { background: var(--ink); opacity: 0.85; }
-@media (hover: hover) { .pick:hover .win { transform: scale(1.06) rotate(-3deg); } .pick[aria-pressed="true"]:hover .win { transform: scale(1.14) translateY(-4%) rotate(-3deg); } }
-.pick:focus-visible { outline: 3px solid var(--ink); outline-offset: 4px; }
-@media (prefers-reduced-motion: reduce) { .pick .win { transition: none; } }
+.screen .play { top: 1rem; right: 1rem; bottom: auto; z-index: 3; }
+.screen-name { position: relative; z-index: 1; margin-top: 1.25rem; font-size: clamp(1.1rem, 1.6vw, 1.3rem); color: var(--ivory-2); }
+.screen-name .nm { font-family: var(--display); font-style: italic; font-weight: 500; font-variation-settings: "opsz" 48, "SOFT" 100; font-size: 1.35em; color: var(--ivory); margin-right: 0.5em; }
+.screen-name .act { display: inline; }
 
-/* What they make: three pieces, laid out like a small wall */
-.made-wall { display: grid; gap: clamp(1rem, 2.4vw, 1.75rem); }
+/* Montessori: a few short principles beside the real-life worlds */
+.principles { list-style: none; margin: clamp(1.4rem, 2.5vw, 2rem) 0 0; padding: 0; max-width: 30rem; }
+.principles li {
+  position: relative; padding: 0.85rem 0 0.85rem 1.7rem;
+  font-size: clamp(1.05rem, 1.4vw, 1.2rem); line-height: 1.4;
+  border-top: 1px solid var(--line);
+}
+.principles li:last-child { border-bottom: 1px solid var(--line); }
+.principles li::before {
+  content: ""; position: absolute; left: 0.2rem; top: 1.45rem; width: 0.45rem; height: 0.45rem; border-radius: 50%;
+  background: var(--gold); box-shadow: 0 0 8px 2px rgba(244, 207, 120, 0.45);
+}
+.more { margin-top: 1.5rem; font-weight: 700; }
+.m-stage { position: relative; padding: 8% 10% 12% 4%; }
+.m-stage .win { position: absolute; --ring: 1px; }
+.m-stage .m-w1 { width: 30%; right: 0; top: -2%; }
+.m-stage .m-w2 { width: 26%; left: -2%; bottom: 0; }
+.m-stage .glow { background: radial-gradient(closest-side, rgba(207, 229, 238, 0.22), transparent 70%); }
+
+/* What they make: three pieces on the night wall */
+.made-wall { position: relative; display: grid; gap: clamp(1rem, 2.4vw, 1.75rem); }
+.made .glow { background: radial-gradient(closest-side, rgba(221, 213, 234, 0.22), transparent 70%); }
 @media (min-width: 640px) {
   .made-wall { grid-template-columns: 1.05fr 1fr; align-items: center; }
-  .made-wall .p1 { grid-row: span 2; transform: rotate(-1.2deg); }
-  .made-wall .p2 { transform: rotate(1deg) translateX(-0.5rem); }
-  .made-wall .p3 { transform: rotate(-0.6deg); }
+  .made-wall .p1 { grid-row: span 2; }
 }
 
-/* Journal: the grown-ups' page, drawn in the page's own type */
+/* Calm: the reef, wide */
+.calm .pic { position: relative; }
+.calm .glow { background: radial-gradient(closest-side, rgba(158, 184, 175, 0.26), transparent 70%); }
+
+/* Journal: the one page of paper in the night, as the app draws it */
 .journal {
   margin: 0; padding: clamp(1.1rem, 3vw, 1.75rem);
-  background: #F4EEE4; border: 1px solid var(--line);
-  border-radius: 34px 30px 36px 28px;
-  box-shadow: 0 1.4rem 0 -0.9rem var(--paper-deep);
+  background: var(--paper); color: var(--ink); border-radius: 28px;
   display: grid; gap: 0.75rem; max-width: 34rem; justify-self: center; width: 100%;
-  font-size: 1rem; line-height: 1.4; transform: rotate(-1deg);
+  font-size: 1rem; line-height: 1.4;
+  box-shadow: 0 50px 80px -40px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(243, 234, 219, 0.18);
 }
-.journal .j-title { font-weight: 900; font-size: 1.35rem; padding: 0 0.25rem 0.25rem; display: flex; align-items: center; gap: 0.6rem; }
+.journal .j-title { font-family: var(--body); font-weight: 800; font-size: 1.3rem; padding: 0 0.25rem 0.25rem; display: flex; align-items: center; gap: 0.6rem; }
 .journal .j-title::before {
   content: ""; width: 0.6rem; height: 0.6rem; border-left: 2.5px solid var(--ink); border-bottom: 2.5px solid var(--ink);
   transform: rotate(45deg); margin-left: 0.25rem;
 }
 .j-card { background: var(--card); border-radius: 18px; padding: 0.95rem 1.1rem; }
 .j-card.ask { background: var(--mint); }
-.j-card b { display: block; font-weight: 800; font-size: 1.08rem; margin-bottom: 0.35rem; }
+.j-card b { display: block; font-weight: 800; font-size: 1.06rem; margin-bottom: 0.35rem; }
 .j-find + .j-find { margin-top: 0.7rem; }
 .j-find span { display: flex; justify-content: space-between; gap: 1rem; font-size: 0.88rem; font-weight: 700; color: var(--leaf); }
 .j-find span i { font-style: normal; font-weight: 600; color: var(--ink-soft); }
 .j-note { font-size: 0.88rem; color: var(--ink-soft); padding: 0.25rem 0.25rem 0; }
 
-/* Price: the real picker, and the store again */
-.price .store { margin-top: 1.75rem; }
+/* The page's end: the store's place, on the first light */
+.band.end { text-align: center; }
+.store--end { display: flex; justify-content: center; text-align: center; }
 
-/* Footer on the landing: one line, the language switch with the rest */
-.home .foot { max-width: var(--page); margin: 0 auto; width: 100%; padding: var(--step) var(--pad) 2.5rem; }
+/* Footer on the landing: the landing's own width */
+.home .foot { max-width: var(--page); padding: var(--step) var(--pad) 2.5rem; }
 
 @media (max-width: 899px) {
-  .hero .split { gap: 2.25rem; }
+  .picker { grid-template-columns: repeat(6, 1fr); gap: 0.6rem; max-width: 30rem; }
   .stage { width: min(100%, 30rem); }
 }
 @media (max-width: 480px) {
-  .stage { padding: 6% 4% 10% 4%; }
-  .stage .play { left: 16%; bottom: 15%; }
-  .frame { border-width: 2.5px; border-radius: 22px 28px 24px 20px / 24px 20px 28px 22px; }
+  .stage { padding: 6% 5% 10%; }
+  .stage .play { left: 16%; bottom: 14%; }
+  .frame, .screen-in { border-radius: 20px; }
 }
-@media (prefers-reduced-motion: reduce) {
-  .journal, .made-wall .p1, .made-wall .p2, .made-wall .p3 { transform: none; }
-}
-.vh { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
-figure.win { margin: 0; }
-.nw { white-space: nowrap; }
-@media (min-width: 900px) {
-  .hero .split { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); }
-  .hero .stage { width: min(100%, 44rem); }
-  .made .split { grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr); }
-}
-
-/* Montessori: a few short principles beside the real-life worlds */
-.principles { list-style: none; margin: clamp(1.4rem, 2.5vw, 2rem) 0 0; padding: 0; max-width: 30rem; }
-.principles li {
-  position: relative; padding: 0.85rem 0 0.85rem 2.1rem;
-  font-size: clamp(1.08rem, 1.5vw, 1.25rem); line-height: 1.38; font-weight: 700;
-  border-top: 1px solid var(--line);
-}
-.principles li:last-child { border-bottom: 1px solid var(--line); }
-.principles li::before {
-  content: ""; position: absolute; left: 0.2rem; top: 1.12rem; width: 0.95rem; height: 0.95rem;
-  border: 2.5px solid var(--ink); border-radius: 52% 48% 55% 45% / 47% 55% 45% 53%;
-}
-.more { margin-top: 1.5rem; font-weight: 800; font-size: 1.08rem; }
-.more a { text-decoration-thickness: 2px; }
-.m-stage { position: relative; padding: 8% 10% 12% 4%; }
-.m-stage .frame { transform: rotate(0.8deg); }
-.m-stage .win { position: absolute; --ring: 3.5px; }
-.m-stage .m-w1 { width: 30%; right: 0; top: -2%; }
-.m-stage .m-w2 { width: 26%; left: -2%; bottom: 0; }
-@media (prefers-reduced-motion: reduce) { .m-stage .frame { transform: none; } }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
 
 /* The Montessori article */
 .article { max-width: 46rem; }
-.article h1 { font-size: clamp(2.6rem, 7vw, 4.4rem); font-weight: 900; letter-spacing: -0.035em; line-height: 0.95; margin-bottom: 1.25rem; }
-.article .lede { font-size: clamp(1.2rem, 2.2vw, 1.4rem); line-height: 1.5; font-weight: 600; color: var(--ink-soft); max-width: 36rem; }
-.article h2 { font-size: clamp(1.6rem, 3.6vw, 2.1rem); font-weight: 900; letter-spacing: -0.02em; margin: 3rem 0 0.8rem; }
+.article h1 { font-size: clamp(2.6rem, 7vw, 4.4rem); line-height: 0.95; margin-bottom: 1.25rem; }
+.article .lede { font-size: clamp(1.2rem, 2.2vw, 1.4rem); line-height: 1.5; color: var(--ivory-2); max-width: 36rem; }
+.article h2 { font-size: clamp(1.6rem, 3.6vw, 2.1rem); margin: 3rem 0 0.8rem; }
 .article p { max-width: 38rem; }
 .article .frame { margin: 2rem 0 0.6rem; max-width: 44rem; }
-.article figcaption.cap { font-size: 0.98rem; color: var(--ink-soft); font-weight: 600; max-width: 38rem; margin-top: 0.4rem; }
+.article figcaption.cap { font-size: 0.98rem; color: var(--ivory-2); max-width: 38rem; margin-top: 0.4rem; }
 .article figure.shot { margin: 2rem 0 0; }
 .article figure.shot .frame { margin: 0 0 0.6rem; }
 .article ul.tips { padding-left: 1.25rem; max-width: 38rem; }
 .article ul.tips li + li { margin-top: 0.55rem; }
 .article .end { margin-top: 3rem; display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.5rem; }
-
 .article .pair { display: grid; gap: 1rem; margin: 2rem 0 0; grid-template-columns: 1fr 1fr; max-width: 44rem; }
 .article .pair .frame { margin: 0; }
 @media (max-width: 560px) { .article .pair { grid-template-columns: 1fr; } }
-@media (max-width: 899px) { .hero-grid .stage { margin-top: 1rem; } }
-@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
-
-/* The page's end: only the store's place (the badge once the app is live). */
-.band.end { padding-top: 0; }
-.store--end { display: flex; justify-content: center; text-align: center; }
