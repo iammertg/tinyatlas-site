@@ -252,3 +252,8 @@ figure.win { margin: 0; }
 .article .pair { display: grid; gap: 1rem; margin: 2rem 0 0; grid-template-columns: 1fr 1fr; max-width: 44rem; }
 .article .pair .frame { margin: 0; }
 @media (max-width: 560px) { .article .pair { grid-template-columns: 1fr; } }
+
+/* The unlisted /free page: the redeem button on its own line, the article's lists in step */
+.free .free-go { margin: 1.5rem 0 0.5rem; }
+.free ol, .free ul { padding-left: 1.25rem; display: grid; gap: 0.6rem; }
+.free .store-badge { margin-top: 0.5rem; }
