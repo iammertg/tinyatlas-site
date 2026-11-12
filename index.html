@@ -55,7 +55,7 @@
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" type="image/png" sizes="192x192" href="/assets/img/icon-192.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="preload" as="image" href="/assets/home/pond-day.jpg" fetchpriority="high">
+<link rel="preload" as="image" href="/assets/home/stage/pond.jpg" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,400..700,100;1,9..144,400..700,100&amp;family=Nunito+Sans:opsz,wght@6..12,400..800&amp;display=swap">
@@ -71,7 +71,8 @@
 </header>
 <main id="main">
 
-  <section class="band hero">
+  <section class="band hero" style="--tint: rgba(112,196,124,.3)">
+    <div class="light" aria-hidden="true"></div>
     <div class="hero-grid">
       <div class="words">
         <h1>Tiny Atlas</h1>
@@ -81,46 +82,48 @@
           <a class="go go--line" href="#worlds">See the worlds</a>
         </div>
       </div>
-      <div class="stage">
-        <div class="glow" aria-hidden="true"></div>
-        <i class="ff"></i><i class="ff"></i><i class="ff"></i><i class="ff"></i><i class="ff"></i><i class="ff"></i><i class="ff"></i>
-        <figure class="win win--big">
-          <figcaption class="vh">The pond on a sunny day: the frog jumps from its lily pad while little frogs sit on the pads nearby</figcaption>
-          <div class="win__media clip-a"><video muted loop playsinline preload="none" poster="/assets/home/pond-day.jpg" aria-hidden="true" data-clip><source data-src="/assets/home/pond-day.mp4" type="video/mp4"></video></div>
-          <button class="play" type="button" data-pause="Pause the clip" data-play="Play the clip" aria-label="Pause the clip" hidden><svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="2" width="3.6" height="12" rx="1.2"/><rect x="9.4" y="2" width="3.6" height="12" rx="1.2"/></svg><svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8c0 .8.9 1.3 1.6.8l8.2-5.4c.6-.4.6-1.2 0-1.6L5.6 1.8C4.9 1.3 4 1.8 4 2.6z"/></svg></button>
-          <svg class="win__ring" viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true" focusable="false"><use href="#ring-a"/></svg>
-        </figure>
-        <div class="win win--s1"><div class="win__media clip-c"><img src="/assets/home/w-winter.webp" width="440" height="440" alt="" decoding="async"></div><svg class="win__ring" viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true" focusable="false"><use href="#ring-c"/></svg></div>
-        <div class="win win--s2"><div class="win__media clip-b"><img src="/assets/home/w-music.webp" width="440" height="440" alt="" decoding="async"></div><svg class="win__ring" viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true" focusable="false"><use href="#ring-b"/></svg></div>
-      </div>
+      <figure class="screen">
+        <div class="screen-in">
+          <video muted playsinline preload="none" poster="/assets/home/stage/pond.jpg" aria-hidden="true" data-stage="pond"></video>
+          <svg class="screen-ring" viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0.0454 -0.0017C0.0696 -0.0029 0.1328 -0.0022 0.1762 -0.0021C0.2195 -0.0019 0.2626 -0.0010 0.3055 -0.0006C0.3485 -0.0003 0.3908 -0.0000 0.4337 0.0000C0.4767 0.0001 0.5201 0.0000 0.5634 -0.0003C0.6066 -0.0007 0.6498 -0.0023 0.6932 -0.0020C0.7366 -0.0017 0.7808 0.0015 0.8240 0.0016C0.8673 0.0017 0.9287 -0.0020 0.9528 -0.0013C0.9769 -0.0007 0.9639 0.0031 0.9686 0.0054C0.9734 0.0076 0.9773 0.0088 0.9813 0.0121C0.9853 0.0154 0.9898 0.0196 0.9927 0.0250C0.9957 0.0304 0.9979 0.0381 0.9989 0.0446C0.9999 0.0511 0.9988 0.0314 0.9989 0.0642C0.9989 0.0969 0.9994 0.1829 0.9994 0.2411C0.9994 0.2994 0.9988 0.3561 0.9990 0.4136C0.9992 0.4711 1.0002 0.5287 1.0004 0.5862C1.0006 0.6436 1.0005 0.7006 1.0002 0.7583C0.9998 0.8160 0.9989 0.9000 0.9986 0.9326C0.9983 0.9652 0.9997 0.9473 0.9983 0.9540C0.9970 0.9608 0.9935 0.9678 0.9906 0.9732C0.9877 0.9786 0.9845 0.9823 0.9809 0.9864C0.9773 0.9905 0.9738 0.9954 0.9692 0.9977C0.9645 1.0000 0.9773 0.9997 0.9532 1.0004C0.9290 1.0010 0.8673 1.0020 0.8244 1.0018C0.7814 1.0016 0.7383 0.9996 0.6953 0.9990C0.6523 0.9984 0.6098 0.9978 0.5664 0.9982C0.5230 0.9985 0.4786 1.0009 0.4349 1.0012C0.3912 1.0015 0.3478 1.0000 0.3043 0.9999C0.2609 0.9999 0.2172 1.0007 0.1742 1.0008C0.1313 1.0009 0.0704 1.0012 0.0468 1.0004C0.0233 0.9995 0.0375 0.9980 0.0330 0.9959C0.0284 0.9938 0.0236 0.9917 0.0196 0.9878C0.0156 0.9840 0.0117 0.9778 0.0090 0.9726C0.0063 0.9674 0.0049 0.9628 0.0033 0.9565C0.0018 0.9502 0.0007 0.9673 -0.0001 0.9348C-0.0009 0.9023 -0.0015 0.8190 -0.0014 0.7614C-0.0013 0.7038 0.0001 0.6474 0.0005 0.5892C0.0009 0.5310 0.0012 0.4703 0.0010 0.4122C0.0009 0.3540 0.0001 0.2981 -0.0004 0.2404C-0.0008 0.1827 -0.0018 0.0986 -0.0015 0.0658C-0.0013 0.0330 -0.0003 0.0500 0.0012 0.0438C0.0027 0.0375 0.0046 0.0339 0.0074 0.0285C0.0101 0.0231 0.0138 0.0153 0.0178 0.0114C0.0218 0.0075 0.0268 0.0072 0.0314 0.0050C0.0360 0.0028 0.0213 -0.0005 0.0454 -0.0017Z" vector-effect="non-scaling-stroke"/></svg>
+        </div>
+        <i class="glint" aria-hidden="true"></i><i class="glint" aria-hidden="true"></i><i class="glint" aria-hidden="true"></i><i class="glint" aria-hidden="true"></i>
+        <button class="play" type="button" data-pause="Pause the clip" data-play="Play the clip" aria-label="Pause the clip" hidden><svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="2" width="3.6" height="12" rx="1.2"/><rect x="9.4" y="2" width="3.6" height="12" rx="1.2"/></svg><svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8c0 .8.9 1.3 1.6.8l8.2-5.4c.6-.4.6-1.2 0-1.6L5.6 1.8C4.9 1.3 4 1.8 4 2.6z"/></svg></button>
+        <figcaption class="screen-name" aria-live="polite"><span class="nm">The pond</span><span class="act">The frog jumps from its lily pad, and the duck waddles by.</span></figcaption>
+      </figure>
+      <ul class="picker" aria-label="Choose a world">
+        <li><button type="button" class="pick" aria-pressed="true" data-world="pond" data-name="The pond" data-act="The frog jumps from its lily pad, and the duck waddles by."><span class="win"><span class="win__media clip-a"><img src="/assets/home/p-pond.webp" width="176" height="176" alt="" decoding="async"></span><svg class="win__ring" viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true" focusable="false"><use href="#ring-a"/></svg></span><span class="vh">The pond</span></button></li>
+        <li><button type="button" class="pick" aria-pressed="false" data-world="farm" data-name="The farm" data-act="The windmill turns, and the cow looks out of the barn."><span class="win"><span class="win__media clip-b"><img src="/assets/home/p-farm.webp" width="176" height="176" alt="" decoding="async"></span><svg class="win__ring" viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true" focusable="false"><use href="#ring-b"/></svg></span><span class="vh">The farm</span></button></li>
+        <li><button type="button" class="pick" aria-pressed="false" data-world="music" data-name="The music room" data-act="A finger runs over the xylophone, and the notes fly to the song wheel."><span class="win"><span class="win__media clip-c"><img src="/assets/home/p-music.webp" width="176" height="176" alt="" decoding="async"></span><svg class="win__ring" viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true" focusable="false"><use href="#ring-c"/></svg></span><span class="vh">The music room</span></button></li>
+        <li><button type="button" class="pick" aria-pressed="false" data-world="board" data-name="The busy board" data-act="The little door opens on a mouse, and the lights above the buttons come on."><span class="win"><span class="win__media clip-d"><img src="/assets/home/p-board.webp" width="176" height="176" alt="" decoding="async"></span><svg class="win__ring" viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true" focusable="false"><use href="#ring-d"/></svg></span><span class="vh">The busy board</span></button></li>
+        <li><button type="button" class="pick" aria-pressed="false" data-world="garden" data-name="The garden" data-act="A seed goes into a pot, gets watered and sprouts; a tomato is picked."><span class="win"><span class="win__media clip-a"><img src="/assets/home/p-garden.webp" width="176" height="176" alt="" decoding="async"></span><svg class="win__ring" viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true" focusable="false"><use href="#ring-a"/></svg></span><span class="vh">The garden</span></button></li>
+        <li><button type="button" class="pick" aria-pressed="false" data-world="reef" data-name="Under the sea" data-act="The shy octopus turns pale, the fish dart off and the crab scuttles."><span class="win"><span class="win__media clip-b"><img src="/assets/home/p-reef.webp" width="176" height="176" alt="" decoding="async"></span><svg class="win__ring" viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true" focusable="false"><use href="#ring-b"/></svg></span><span class="vh">Under the sea</span></button></li>
+        <li><button type="button" class="pick" aria-pressed="false" data-world="kitchen" data-name="The kitchen" data-act="The corn is chopped, the fridge opens and the toast pops up."><span class="win"><span class="win__media clip-c"><img src="/assets/home/p-kitchen.webp" width="176" height="176" alt="" decoding="async"></span><svg class="win__ring" viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true" focusable="false"><use href="#ring-c"/></svg></span><span class="vh">The kitchen</span></button></li>
+        <li><button type="button" class="pick" aria-pressed="false" data-world="studio" data-name="The studio" data-act="Red and blue paint go across the canvas."><span class="win"><span class="win__media clip-d"><img src="/assets/home/p-studio.webp" width="176" height="176" alt="" decoding="async"></span><svg class="win__ring" viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true" focusable="false"><use href="#ring-d"/></svg></span><span class="vh">The studio</span></button></li>
+        <li><button type="button" class="pick" aria-pressed="false" data-world="street" data-name="The street" data-act="The traffic light changes, the pigeons fly up and a car drives off."><span class="win"><span class="win__media clip-a"><img src="/assets/home/p-street.webp" width="176" height="176" alt="" decoding="async"></span><svg class="win__ring" viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true" focusable="false"><use href="#ring-a"/></svg></span><span class="vh">The street</span></button></li>
+        <li><button type="button" class="pick" aria-pressed="false" data-world="winter" data-name="Winter" data-act="A snowball rolls onto the snowman, the northern lights come out and the polar bear sleds down the hill."><span class="win"><span class="win__media clip-b"><img src="/assets/home/p-winter.webp" width="176" height="176" alt="" decoding="async"></span><svg class="win__ring" viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true" focusable="false"><use href="#ring-b"/></svg></span><span class="vh">Winter</span></button></li>
+        <li><button type="button" class="pick" aria-pressed="false" data-world="space" data-name="Space" data-act="The rocket takes off and lands on the Moon."><span class="win"><span class="win__media clip-c"><img src="/assets/home/p-space.webp" width="176" height="176" alt="" decoding="async"></span><svg class="win__ring" viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true" focusable="false"><use href="#ring-c"/></svg></span><span class="vh">Space</span></button></li>
+        <li><button type="button" class="pick" aria-pressed="false" data-world="dino" data-name="Dinosaur valley" data-act="The T-rex roars and the volcano puffs smoke."><span class="win"><span class="win__media clip-d"><img src="/assets/home/p-dino.webp" width="176" height="176" alt="" decoding="async"></span><svg class="win__ring" viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true" focusable="false"><use href="#ring-d"/></svg></span><span class="vh">Dinosaur valley</span></button></li>
+      </ul>
     </div>
   </section>
 
   <section class="band worlds" id="worlds" aria-labelledby="h-worlds">
     <div class="words"><h2 id="h-worlds">Twelve little worlds</h2></div>
-    <div class="ws">
-      <ul class="picker">
-        <li><button type="button" class="pick" aria-pressed="false" data-world="pond" data-name="The pond" data-act="The frog jumps from its lily pad, and the duck waddles by."><span class="win"><span class="win__media clip-a"><img src="/assets/home/w-pond.webp" width="440" height="440" alt="" loading="lazy" decoding="async"></span><svg class="win__ring" viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true" focusable="false"><use href="#ring-a"/></svg></span><span class="vh">The pond</span></button></li>
-        <li><button type="button" class="pick" aria-pressed="true" data-world="farm" data-name="The farm" data-act="The windmill turns, and the cow looks out of the barn."><span class="win"><span class="win__media clip-b"><img src="/assets/home/w-farm.webp" width="440" height="440" alt="" loading="lazy" decoding="async"></span><svg class="win__ring" viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true" focusable="false"><use href="#ring-b"/></svg></span><span class="vh">The farm</span></button></li>
-        <li><button type="button" class="pick" aria-pressed="false" data-world="music" data-name="The music room" data-act="A finger runs over the xylophone, and the notes fly to the song wheel."><span class="win"><span class="win__media clip-c"><img src="/assets/home/w-music.webp" width="440" height="440" alt="" loading="lazy" decoding="async"></span><svg class="win__ring" viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true" focusable="false"><use href="#ring-c"/></svg></span><span class="vh">The music room</span></button></li>
-        <li><button type="button" class="pick" aria-pressed="false" data-world="board" data-name="The busy board" data-act="The little door opens on a mouse, and the lights above the buttons come on."><span class="win"><span class="win__media clip-d"><img src="/assets/home/w-board.webp" width="440" height="440" alt="" loading="lazy" decoding="async"></span><svg class="win__ring" viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true" focusable="false"><use href="#ring-d"/></svg></span><span class="vh">The busy board</span></button></li>
-        <li><button type="button" class="pick" aria-pressed="false" data-world="garden" data-name="The garden" data-act="A seed goes into a pot, gets watered and sprouts; a tomato is picked."><span class="win"><span class="win__media clip-a"><img src="/assets/home/w-garden.webp" width="440" height="440" alt="" loading="lazy" decoding="async"></span><svg class="win__ring" viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true" focusable="false"><use href="#ring-a"/></svg></span><span class="vh">The garden</span></button></li>
-        <li><button type="button" class="pick" aria-pressed="false" data-world="reef" data-name="Under the sea" data-act="The shy octopus turns pale, the fish dart off and the crab scuttles."><span class="win"><span class="win__media clip-b"><img src="/assets/home/w-reef.webp" width="440" height="440" alt="" loading="lazy" decoding="async"></span><svg class="win__ring" viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true" focusable="false"><use href="#ring-b"/></svg></span><span class="vh">Under the sea</span></button></li>
-        <li><button type="button" class="pick" aria-pressed="false" data-world="kitchen" data-name="The kitchen" data-act="The corn is chopped, the fridge opens and the toast pops up."><span class="win"><span class="win__media clip-c"><img src="/assets/home/w-kitchen.webp" width="440" height="440" alt="" loading="lazy" decoding="async"></span><svg class="win__ring" viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true" focusable="false"><use href="#ring-c"/></svg></span><span class="vh">The kitchen</span></button></li>
-        <li><button type="button" class="pick" aria-pressed="false" data-world="studio" data-name="The studio" data-act="Red and blue paint go across the canvas."><span class="win"><span class="win__media clip-d"><img src="/assets/home/w-studio.webp" width="440" height="440" alt="" loading="lazy" decoding="async"></span><svg class="win__ring" viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true" focusable="false"><use href="#ring-d"/></svg></span><span class="vh">The studio</span></button></li>
-        <li><button type="button" class="pick" aria-pressed="false" data-world="street" data-name="The street" data-act="The traffic light changes, the pigeons fly up and a car drives off."><span class="win"><span class="win__media clip-a"><img src="/assets/home/w-street.webp" width="440" height="440" alt="" loading="lazy" decoding="async"></span><svg class="win__ring" viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true" focusable="false"><use href="#ring-a"/></svg></span><span class="vh">The street</span></button></li>
-        <li><button type="button" class="pick" aria-pressed="false" data-world="winter" data-name="Winter" data-act="A snowball rolls onto the snowman, the northern lights come out and the polar bear sleds down the hill."><span class="win"><span class="win__media clip-b"><img src="/assets/home/w-winter.webp" width="440" height="440" alt="" loading="lazy" decoding="async"></span><svg class="win__ring" viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true" focusable="false"><use href="#ring-b"/></svg></span><span class="vh">Winter</span></button></li>
-        <li><button type="button" class="pick" aria-pressed="false" data-world="space" data-name="Space" data-act="The rocket takes off and lands on the Moon."><span class="win"><span class="win__media clip-c"><img src="/assets/home/w-space.webp" width="440" height="440" alt="" loading="lazy" decoding="async"></span><svg class="win__ring" viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true" focusable="false"><use href="#ring-c"/></svg></span><span class="vh">Space</span></button></li>
-        <li><button type="button" class="pick" aria-pressed="false" data-world="dino" data-name="Dinosaur valley" data-act="The T-rex roars and the volcano puffs smoke."><span class="win"><span class="win__media clip-d"><img src="/assets/home/w-dino.webp" width="440" height="440" alt="" loading="lazy" decoding="async"></span><svg class="win__ring" viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true" focusable="false"><use href="#ring-d"/></svg></span><span class="vh">Dinosaur valley</span></button></li>
-      </ul>
-      <figure class="screen" style="--tint: rgba(222, 196, 140, 0.34)">
-        <div class="screen-in">
-          <video muted loop playsinline preload="none" poster="/assets/home/stage/farm.jpg" aria-hidden="true" data-stage="farm"></video>
-        </div>
-        <button class="play" type="button" data-pause="Pause the clip" data-play="Play the clip" aria-label="Pause the clip" hidden><svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="2" width="3.6" height="12" rx="1.2"/><rect x="9.4" y="2" width="3.6" height="12" rx="1.2"/></svg><svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8c0 .8.9 1.3 1.6.8l8.2-5.4c.6-.4.6-1.2 0-1.6L5.6 1.8C4.9 1.3 4 1.8 4 2.6z"/></svg></button>
-        <figcaption class="screen-name" aria-live="polite"><span class="nm">The farm</span><span class="act">The windmill turns, and the cow looks out of the barn.</span></figcaption>
-      </figure>
-    </div>
+    <ul class="atlas">
+      <li><figure><div class="frame"><img src="/assets/home/stage/pond.jpg" srcset="/assets/home/stage/pond-700.webp 700w, /assets/home/stage/pond.jpg 1400w" sizes="(min-width: 1216px) 22rem, (min-width: 960px) 29vw, (min-width: 640px) 45vw, 82vw" width="1400" height="973" alt="The pond: a frog on a lily pad, two little frogs, a duck and an apple tree" loading="lazy" decoding="async"></div><figcaption><span class="nm">The pond</span> <span class="free">Free</span><span class="act">The frog jumps from its lily pad, and the duck waddles by.</span></figcaption></figure></li>
+      <li><figure><div class="frame"><img src="/assets/home/stage/farm.jpg" srcset="/assets/home/stage/farm-700.webp 700w, /assets/home/stage/farm.jpg 1400w" sizes="(min-width: 1216px) 22rem, (min-width: 960px) 29vw, (min-width: 640px) 45vw, 82vw" width="1400" height="973" alt="The farm: a windmill, a red barn, a sheep by the washing line and a pig in the mud" loading="lazy" decoding="async"></div><figcaption><span class="nm">The farm</span> <span class="free">Free</span><span class="act">The windmill turns, and the cow looks out of the barn.</span></figcaption></figure></li>
+      <li><figure><div class="frame"><img src="/assets/home/stage/music.jpg" srcset="/assets/home/stage/music-700.webp 700w, /assets/home/stage/music.jpg 1400w" sizes="(min-width: 1216px) 22rem, (min-width: 960px) 29vw, (min-width: 640px) 45vw, 82vw" width="1400" height="973" alt="The music room: a xylophone, bells, a drum and the song wheel on the wall" loading="lazy" decoding="async"></div><figcaption><span class="nm">The music room</span><span class="act">A finger runs over the xylophone, and the notes fly to the song wheel.</span></figcaption></figure></li>
+      <li><figure><div class="frame"><img src="/assets/home/stage/board.jpg" srcset="/assets/home/stage/board-700.webp 700w, /assets/home/stage/board.jpg 1400w" sizes="(min-width: 1216px) 22rem, (min-width: 960px) 29vw, (min-width: 640px) 45vw, 82vw" width="1400" height="973" alt="The busy board: big buttons, switches, gears, a bell and a little door" loading="lazy" decoding="async"></div><figcaption><span class="nm">The busy board</span><span class="act">The little door opens on a mouse, and the lights above the buttons come on.</span></figcaption></figure></li>
+      <li><figure><div class="frame"><img src="/assets/home/stage/garden.jpg" srcset="/assets/home/stage/garden-700.webp 700w, /assets/home/stage/garden.jpg 1400w" sizes="(min-width: 1216px) 22rem, (min-width: 960px) 29vw, (min-width: 640px) 45vw, 82vw" width="1400" height="973" alt="The garden: seed packets, a sunflower, a tomato plant and empty pots" loading="lazy" decoding="async"></div><figcaption><span class="nm">The garden</span><span class="act">A seed goes into a pot, gets watered and sprouts; a tomato is picked.</span></figcaption></figure></li>
+      <li><figure><div class="frame"><img src="/assets/home/stage/reef.jpg" srcset="/assets/home/stage/reef-700.webp 700w, /assets/home/stage/reef.jpg 1400w" sizes="(min-width: 1216px) 22rem, (min-width: 960px) 29vw, (min-width: 640px) 45vw, 82vw" width="1400" height="973" alt="Under the sea: an octopus, a crab, corals and a little shoal of fish" loading="lazy" decoding="async"></div><figcaption><span class="nm">Under the sea</span><span class="act">The shy octopus turns pale, the fish dart off and the crab scuttles.</span></figcaption></figure></li>
+      <li><figure><div class="frame"><img src="/assets/home/stage/kitchen.jpg" srcset="/assets/home/stage/kitchen-700.webp 700w, /assets/home/stage/kitchen.jpg 1400w" sizes="(min-width: 1216px) 22rem, (min-width: 960px) 29vw, (min-width: 640px) 45vw, 82vw" width="1400" height="973" alt="The kitchen: a pot on the stove, a toaster, the fridge and a cat in the window" loading="lazy" decoding="async"></div><figcaption><span class="nm">The kitchen</span> <span class="free">Free</span><span class="act">The corn is chopped, the fridge opens and the toast pops up.</span></figcaption></figure></li>
+      <li><figure><div class="frame"><img src="/assets/home/stage/studio.jpg" srcset="/assets/home/stage/studio-700.webp 700w, /assets/home/stage/studio.jpg 1400w" sizes="(min-width: 1216px) 22rem, (min-width: 960px) 29vw, (min-width: 640px) 45vw, 82vw" width="1400" height="973" alt="The studio: a canvas on its easel, pots of paint and a teddy bear in the doorway" loading="lazy" decoding="async"></div><figcaption><span class="nm">The studio</span><span class="act">Red and blue paint go across the canvas.</span></figcaption></figure></li>
+      <li><figure><div class="frame"><img src="/assets/home/stage/street.jpg" srcset="/assets/home/stage/street-700.webp 700w, /assets/home/stage/street.jpg 1400w" sizes="(min-width: 1216px) 22rem, (min-width: 960px) 29vw, (min-width: 640px) 45vw, 82vw" width="1400" height="973" alt="The street: shops, a traffic light, pigeons, two cars and a raccoon with balloons" loading="lazy" decoding="async"></div><figcaption><span class="nm">The street</span><span class="act">The traffic light changes, the pigeons fly up and a car drives off.</span></figcaption></figure></li>
+      <li><figure><div class="frame"><img src="/assets/home/stage/winter.jpg" srcset="/assets/home/stage/winter-700.webp 700w, /assets/home/stage/winter.jpg 1400w" sizes="(min-width: 1216px) 22rem, (min-width: 960px) 29vw, (min-width: 640px) 45vw, 82vw" width="1400" height="973" alt="Winter: snowy pine trees, a snowman waiting to be built, penguins, a seal and a polar bear on a sled" loading="lazy" decoding="async"></div><figcaption><span class="nm">Winter</span> <span class="free">Free</span><span class="act">A snowball rolls onto the snowman, the northern lights come out and the polar bear sleds down the hill.</span></figcaption></figure></li>
+      <li><figure><div class="frame"><img src="/assets/home/stage/space.jpg" srcset="/assets/home/stage/space-700.webp 700w, /assets/home/stage/space.jpg 1400w" sizes="(min-width: 1216px) 22rem, (min-width: 960px) 29vw, (min-width: 640px) 45vw, 82vw" width="1400" height="973" alt="Space: a smiling Sun, the planets, an astronaut, a rocket and the Moon" loading="lazy" decoding="async"></div><figcaption><span class="nm">Space</span><span class="act">The rocket takes off and lands on the Moon.</span></figcaption></figure></li>
+      <li><figure><div class="frame"><img src="/assets/home/stage/dino.jpg" srcset="/assets/home/stage/dino-700.webp 700w, /assets/home/stage/dino.jpg 1400w" sizes="(min-width: 1216px) 22rem, (min-width: 960px) 29vw, (min-width: 640px) 45vw, 82vw" width="1400" height="973" alt="Dinosaur valley: a long-necked dinosaur, a T-rex, eggs in a nest and a smoking volcano" loading="lazy" decoding="async"></div><figcaption><span class="nm">Dinosaur valley</span><span class="act">The T-rex roars and the volcano puffs smoke.</span></figcaption></figure></li>
+    </ul>
   </section>
 
   <section class="band montessori" aria-labelledby="h-montessori">
@@ -201,132 +204,6 @@
   </nav>
   <p class="mark"><img src="/assets/img/mark.png" alt="" width="32" height="32">© 2026 Mert Gözükara</p>
 </footer>
-<script>
-/* The clips. The hero's loads when it is on screen; the stage's loads only for the world that is chosen. Under reduced
-   motion nothing plays and the posters stay. Every clip has a pause button. The screen throws each world's own light
-   on the night around it. */
-(function () {
-  var still = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var tints = { pond: 'rgba(156,201,138,.34)', farm: 'rgba(222,196,140,.34)', music: 'rgba(230,170,110,.32)', board: 'rgba(222,196,140,.3)',
-    garden: 'rgba(196,214,140,.32)', reef: 'rgba(120,190,190,.34)', kitchen: 'rgba(170,205,220,.32)', studio: 'rgba(230,220,200,.3)',
-    street: 'rgba(232,180,150,.32)', winter: 'rgba(200,196,230,.36)', space: 'rgba(140,150,220,.36)', dino: 'rgba(180,205,130,.32)' };
-  function btnOf(v) { return v.closest('.win, .screen').querySelector('.play'); }
-  function mark(b, playing) {
-    if (!b) return;
-    b.classList.toggle('paused', !playing);
-    b.setAttribute('aria-label', playing ? b.dataset.pause : b.dataset.play);
-  }
-  function start(v) {
-    var p = v.play();
-    mark(btnOf(v), true);
-    if (p && p.catch) p.catch(function () { mark(btnOf(v), false); });
-  }
-  function wire(v, load) {
-    var b = btnOf(v);
-    if (!b) return;
-    b.hidden = false;
-    v.userPaused = still;
-    mark(b, !still);
-    b.addEventListener('click', function () {
-      if (v.paused) { v.userPaused = false; load(); start(v); }
-      else { v.userPaused = true; v.pause(); mark(b, false); }
-    });
-    if (!('IntersectionObserver' in window)) { if (!still) { load(); start(v); } return; }
-    new IntersectionObserver(function (es) {
-      es.forEach(function (e) {
-        if (e.isIntersecting) { if (!v.userPaused) { load(); start(v); } }
-        else if (!v.paused) v.pause();
-      });
-    }, { rootMargin: '150px 0px' }).observe(v);
-  }
-
-  // The hero
-  [].forEach.call(document.querySelectorAll('video[data-clip]'), function (v) {
-    wire(v, function () {
-      if (v.dataset.loaded) return;
-      v.dataset.loaded = '1';
-      [].forEach.call(v.querySelectorAll('source[data-src]'), function (s) { s.src = s.dataset.src; });
-      v.load();
-    });
-  });
-
-  // The stage: twelve windows, one screen
-  var v = document.querySelector('video[data-stage]');
-  if (!v) return;
-  var dir = '/assets/home/stage/';
-  var screen = v.closest('.screen');
-  var inner = screen.querySelector('.screen-in');
-  var nm = screen.querySelector('.nm');
-  var act = screen.querySelector('.act');
-  var picks = [].slice.call(document.querySelectorAll('.pick'));
-  var world = v.dataset.stage;
-  // Two layers, so a switch never shows a glimpse of the world before: the screen keeps the old world's still behind,
-  // and the new world opens on top with its own still already loaded; its clip fades in only once it plays.
-  var top = document.createElement('div');
-  top.className = 'screen-top';
-  var still0 = new Image();
-  still0.className = 'screen-still';
-  still0.alt = '';
-  still0.src = dir + world + '.jpg';
-  inner.appendChild(top);
-  top.appendChild(still0);
-  top.appendChild(v);
-  v.addEventListener('playing', function () { v.classList.add('on'); });
-  var seq = 0, warmed = false;
-  function warm() {
-    if (warmed) return;
-    warmed = true;
-    picks.forEach(function (b) { new Image().src = dir + b.dataset.world + '.jpg'; });
-  }
-  // the stills are warmed ahead only on a wide screen; a phone fetches each on the tap
-  var wide = !window.matchMedia || matchMedia('(min-width: 900px)').matches;
-  if (wide && 'IntersectionObserver' in window) {
-    new IntersectionObserver(function (es, o) {
-      if (es.some(function (e) { return e.isIntersecting; })) { warm(); o.disconnect(); }
-    }, { rootMargin: '400px 0px' }).observe(screen);
-  } else if (wide) warm();
-  function loadWorld() {
-    var want = dir + world + '.mp4';
-    if (v.getAttribute('src') !== want) { v.setAttribute('src', want); v.load(); }
-  }
-  wire(v, loadWorld);
-  picks.forEach(function (b) {
-    b.addEventListener('click', function () {
-      if (b.dataset.world === world) return;
-      var was = world;
-      world = b.dataset.world;
-      var mine = ++seq;
-      picks.forEach(function (o) { o.setAttribute('aria-pressed', o === b ? 'true' : 'false'); });
-      nm.textContent = b.dataset.name;
-      act.textContent = b.dataset.act;
-      screen.style.setProperty('--tint', tints[world] || tints.farm);
-      // behind: the world being left, as a still; on top: nothing of it is left playing
-      inner.style.backgroundImage = 'url(' + dir + was + '.jpg)';
-      v.classList.remove('on');
-      v.pause();
-      v.removeAttribute('src');
-      v.load();
-      v.setAttribute('poster', dir + world + '.jpg');
-      var next = new Image();
-      function reveal() {
-        if (mine !== seq) return;
-        still0.src = next.src;
-        if (still) return;
-        // the window opens onto its world, as it does in the app
-        var r = b.getBoundingClientRect(), s = inner.getBoundingClientRect();
-        var x = Math.max(0, Math.min(100, (r.left + r.width / 2 - s.left) / s.width * 100));
-        var y = Math.max(0, Math.min(100, (r.top + r.height / 2 - s.top) / s.height * 100));
-        if (top.animate) top.animate(
-          [{ clipPath: 'circle(8% at ' + x + '% ' + y + '%)' }, { clipPath: 'circle(150% at ' + x + '% ' + y + '%)' }],
-          { duration: 650, easing: 'cubic-bezier(.3,.7,.2,1)' });
-        if (!v.userPaused) { loadWorld(); start(v); }
-      }
-      next.onload = next.onerror = reveal;
-      next.src = dir + world + '.jpg';
-      if (next.complete) reveal();
-    });
-  });
-})();
-</script>
+<script src="/assets/home.js" defer></script>
 </body>
 </html>
