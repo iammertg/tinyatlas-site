@@ -32,7 +32,15 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 
-html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; color-scheme: dark; }
+html {
+  -webkit-text-size-adjust: 100%; text-size-adjust: 100%; color-scheme: dark;
+  -webkit-tap-highlight-color: transparent; scrollbar-color: rgba(243, 234, 219, 0.28) var(--night-0);
+}
+/* the browser's own surfaces in the night's colours: a selection like firefly light, gold caret and controls */
+::selection { background: rgba(244, 207, 120, 0.34); color: #fff; }
+input, textarea { caret-color: var(--gold); }
+:root { accent-color: var(--gold); }
+a, button, summary { touch-action: manipulation; }
 
 body {
   margin: 0;
@@ -72,15 +80,18 @@ p + p { margin-top: 1em; }
   display: flex; align-items: center; justify-content: space-between; gap: 1rem;
   padding: 1.25rem var(--gutter);
 }
-.brand { display: inline-flex; align-items: center; gap: 0.65rem; text-decoration: none; font-weight: 700; font-size: 1.05rem; letter-spacing: 0.01em; }
+/* the mark is as tall as the language pill, so the header keeps one height on every page, with or without the pill */
+.brand { display: inline-flex; align-items: center; gap: 0.65rem; min-height: 44px; text-decoration: none; font-weight: 700; font-size: 1.05rem; letter-spacing: 0.01em; }
 .brand img { width: 36px; height: 36px; border-radius: 10px; }
 .brand:hover { text-decoration: none; }
 .lang {
   display: inline-flex; align-items: center; min-height: 44px;
   padding: 0.3rem 1.05rem; border: 1px solid var(--line); border-radius: 999px;
   text-decoration: none; font-weight: 600; font-size: 0.95rem; color: var(--ivory-2);
+  transition: border-color 0.16s ease, color 0.16s ease, transform 0.12s cubic-bezier(0.23, 1, 0.32, 1);
 }
 .lang:hover { border-color: var(--ivory-3); color: var(--ivory); }
+.lang:active { transform: scale(0.97); }
 
 main { flex: 1; }
 
@@ -108,11 +119,14 @@ main { flex: 1; }
   border: 1px solid var(--line); border-radius: 24px;
   background: radial-gradient(ellipse 90% 140% at 0% 0%, rgba(207, 229, 238, 0.14), transparent 60%), rgba(243, 234, 219, 0.04);
 }
+.page h1 + .note { margin-top: 1.5rem; }
 .note p { margin: 0; }
 .note .email { font-size: 1.2rem; }
 .note .hint { margin-top: 0.5rem; color: var(--ivory-2); font-size: 1rem; }
 .note .chip { grid-row: auto; }
 .email { font-weight: 700; overflow-wrap: anywhere; }
+/* the address is the page's one action: a fingertip-tall target without moving the line */
+.note .email, .facts-table .email { display: inline-block; padding-block: 0.6rem; margin-block: -0.6rem; }
 
 /* FAQ */
 .page .faq { max-width: var(--measure); margin: 0; padding: 0; list-style: none; }
@@ -126,11 +140,14 @@ main { flex: 1; }
 .faq summary::-webkit-details-marker { display: none; }
 .faq summary::after {
   content: ""; flex: 0 0 auto; width: 1.9rem; height: 1.9rem; border-radius: 50%;
-  border: 1px solid var(--line);
+  border: 1px solid var(--line); transition: border-color 0.16s ease, background-color 0.16s ease;
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 5v10M5 10h10' stroke='%23F3EADB' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E") center / 0.95rem no-repeat;
 }
 .faq details[open] summary::after {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 10h10' stroke='%23F3EADB' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+@media (hover: hover) and (pointer: fine) {
+  .faq summary:hover::after { border-color: var(--ivory-3); background-color: rgba(243, 234, 219, 0.06); }
 }
 .faq .answer { padding: 0 0 1.4rem; color: var(--ivory-2); }
 .faq .answer p + p, .faq .answer p + ol, .faq .answer ol + p { margin-top: 0.8em; }
@@ -147,8 +164,10 @@ main { flex: 1; }
   display: inline-flex; align-items: center; min-height: 44px; padding: 0.4rem 1.2rem;
   border: 1px solid var(--ivory-3); border-radius: 999px; background: rgba(243, 234, 219, 0.06); color: var(--ivory);
   font-weight: 700; font-size: 1rem; text-decoration: none;
+  transition: background-color 0.16s ease, color 0.16s ease, transform 0.12s cubic-bezier(0.23, 1, 0.32, 1);
 }
 .button:hover { background: var(--ivory); color: var(--night-0); }
+.button:active { transform: scale(0.97); }
 .press-shots { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr)); max-width: 64rem; }
 .press-shots a { display: block; text-decoration: none; font-weight: 700; font-size: 1rem; }
 .press-shots img { width: 100%; height: auto; border-radius: 16px; border: 1px solid var(--line); margin-bottom: 0.45rem; background: var(--well); }
@@ -162,7 +181,7 @@ main { flex: 1; }
   font-size: 0.98rem; color: var(--ivory-2);
 }
 .foot nav { display: flex; flex-wrap: wrap; gap: 0.25rem 1.5rem; }
-.foot nav a { font-weight: 600; display: inline-block; padding: 0.4rem 0; text-decoration: none; }
+.foot nav a { font-weight: 600; display: inline-flex; align-items: center; min-height: 44px; text-decoration: none; transition: color 0.16s ease; }
 .foot nav a:hover { color: var(--ivory); }
 .foot .mark { display: inline-flex; align-items: center; gap: 0.6rem; }
 .foot .mark img { width: 28px; height: 28px; border-radius: 8px; }
