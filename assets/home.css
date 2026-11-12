@@ -76,11 +76,14 @@ figure.win { margin: 0; }
 .go:hover { background: #fff; }
 .soon { margin: 0; font-size: 1rem; font-weight: 600; color: var(--ivory-2); }
 
-/* The App Store badge, once the app is live: Apple's white badge belongs on this ground. The drawn stand-in
-   below keeps the badge's proportions for the day the official artwork goes in. */
-.badge { display: inline-flex; align-items: center; gap: 0.6rem; min-height: 54px; padding: 0.45rem 1.1rem 0.45rem 0.9rem; border-radius: 10px; border: 1px solid var(--ivory); color: var(--ivory); text-decoration: none; background: rgba(20, 26, 56, 0.4); }
-.badge:hover { background: var(--ivory); color: var(--night-0); }
-.badge img { height: 54px; width: auto; }
+/* Apple's white App Store badge, as Apple draws it: never recoloured, never under 40 px tall */
+.store-badge { display: inline-block; line-height: 0; border-radius: 10px; }
+.store-badge img { display: block; height: 54px; width: auto; }
+.article .store-badge img { height: 48px; }
+.store-badge:focus-visible { outline: 2px solid var(--ivory); outline-offset: 4px; }
+/* Beside the badge, the way to the worlds steps back to a line */
+.go--line { background: transparent; color: var(--ivory); box-shadow: inset 0 0 0 1px rgba(243, 234, 219, 0.55); }
+.go--line:hover { background: rgba(243, 234, 219, 0.1); }
 .store { margin: 0; }
 
 .stage { position: relative; width: min(100%, 40rem); margin: clamp(2rem, 5vw, 3rem) auto 0; padding: 5% 9% 7%; }
@@ -217,7 +220,7 @@ figure.win { margin: 0; }
 
 /* The page's end: the store's place, on the first light */
 .band.end { text-align: center; }
-.store--end { display: flex; justify-content: center; text-align: center; }
+.store--end { display: flex; flex-direction: column; align-items: center; gap: 1rem; text-align: center; }
 
 /* Footer on the landing: the landing's own width */
 .home .foot { max-width: var(--page); padding: var(--step) var(--pad) 2.5rem; }
